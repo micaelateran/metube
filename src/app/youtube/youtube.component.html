@@ -1,0 +1,10 @@
+<div style="text-align:center">
+  <h1>
+    Reproductor de videos.
+  </h1>
+  <youtube-player
+  [videoId]="id"
+  (ready)="savePlayer($event)"
+  (change)="onStateChange($event)"
+></youtube-player>
+</div>
