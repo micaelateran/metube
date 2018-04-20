@@ -5,12 +5,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { YoutubePlayerModule } from 'ng2-youtube-player';
 import { YoutubeComponent } from './youtube/youtube.component';
+import { FormularioRegistrarUsuarioComponent } from './formulario-registrar-usuario/formulario-registrar-usuario.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    YoutubeComponent
+    YoutubeComponent,
+    FormularioRegistrarUsuarioComponent
   ],
   imports: [
     BrowserModule,
