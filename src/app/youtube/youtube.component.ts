@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-youtube',
@@ -8,11 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class YoutubeComponent implements OnInit {
 
   player: YT.Player;
-  private id: string = '9pCcT8XQTnc';
 
-  constructor() { }
+  private id:string;
+  constructor(private data : DataService) { 
+
+   this.id = this.data.getVideoID();
+
+  }
 
   ngOnInit() {
+    
+
   }
 
 	savePlayer (player) {
