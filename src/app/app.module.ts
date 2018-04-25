@@ -3,29 +3,16 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { YoutubePlayerModule } from 'ng2-youtube-player';
-import { YoutubeComponent } from './youtube/youtube.component';
-import { FormularioRegistrarUsuarioComponent } from './formulario-registrar-usuario/formulario-registrar-usuario.component';
-import {MiniaturasComponent} from './miniaturas/miniaturas.component';
-import {AppRoutingModule} from './app-routing.module';
-import {DataService} from './data.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    YoutubeComponent,
-    FormularioRegistrarUsuarioComponent,
-    MiniaturasComponent
-    
+    AppComponent
   ],
   imports: [
-    BrowserModule,
-    YoutubePlayerModule,
-    AppRoutingModule,
-    
+    BrowserModule
   ],
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
