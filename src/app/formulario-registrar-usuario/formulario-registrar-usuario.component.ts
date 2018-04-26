@@ -21,23 +21,22 @@ export class FormularioRegistrarUsuarioComponent implements OnInit {
       var email = (<HTMLInputElement>document.getElementById("email")).value;
       
       var genero = ""
-      var genero_masculino = (<HTMLInputElement>document.getElementById("genero_masculino")).value;
-      var genero_femenino = (<HTMLInputElement>document.getElementById("genero_femenino")).value;
-      var genero_otro = (<HTMLInputElement>document.getElementById("genero_otro")).value;
+      var genero_masculino = (<HTMLInputElement>document.getElementById("genero_masculino")).checked;
+      var genero_femenino = (<HTMLInputElement>document.getElementById("genero_femenino")).checked;
+      var genero_otro = (<HTMLInputElement>document.getElementById("genero_otro")).checked;
 
-      if(genero_masculino != null){
-        genero = "Masculino"
+      if (genero_masculino){
+        genero = "masculino"
+      } else if (genero_femenino){
+        genero = "femenino"
+      } else if (genero_otro){
+        genero = "alternativo"
       }
-      if(genero_femenino != null){
-        genero = "Femenino"
-      }
-      if(genero_otro != null){
-        genero = "Otro"
-      }
-      
+
       var fecha_nacimiento = (<HTMLInputElement>document.getElementById("fecha_nacimiento")).value;
 
       var nuevo_usuario = new Usuario(usuario,email,contraseña,genero,fecha_nacimiento);
+      alert("Bienvenido " + usuario + "!")
       console.log(nuevo_usuario.toString());
       return new Usuario(usuario,email,contraseña,genero,fecha_nacimiento);
     }else{
