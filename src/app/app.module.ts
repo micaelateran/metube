@@ -9,6 +9,11 @@ import { AppComponent } from './app.component';
 import { ReproductorComponent } from './reproductor/reproductor.component';
 import { FormularioRegistrarUsuarioComponent } from './formulario-registrar-usuario/formulario-registrar-usuario.component';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +25,9 @@ import { FormularioRegistrarUsuarioComponent } from './formulario-registrar-usua
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
-    VgBufferingModule
+    VgBufferingModule,
+    AngularFireModule.initializeApp(environment.firebase, 'fcc-book-trading'),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
