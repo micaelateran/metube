@@ -8,12 +8,14 @@ import {VgBufferingModule} from 'videogular2/buffering';
 import { AppComponent } from './app.component';
 import { ReproductorComponent } from './reproductor/reproductor.component';
 import { FormularioRegistrarUsuarioComponent } from './formulario-registrar-usuario/formulario-registrar-usuario.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReproductorComponent,
-    FormularioRegistrarUsuarioComponent
+    FormularioRegistrarUsuarioComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
