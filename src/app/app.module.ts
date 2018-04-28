@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { ReproductorComponent } from './reproductor/reproductor.component';
 import { FormularioRegistrarUsuarioComponent } from './formulario-registrar-usuario/formulario-registrar-usuario.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { InterfazRetosComponent } from './interfaz-retos/interfaz-retos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReproductorComponent,
     FormularioRegistrarUsuarioComponent,
-    NavbarComponent
+    NavbarComponent,
+    InterfazRetosComponent
   ],
   imports: [
     BrowserModule,
