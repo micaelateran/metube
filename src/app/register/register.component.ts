@@ -20,11 +20,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmitAddUser() {
-    this.authService.registerUser(this.email, this.password)
+    /*this.authService.registerUser(this.email, this.password)
     .then((res) => {
       console.log("BIEEEN")
     }).catch( (err) => {
      console.log("MAAAL")
-    });
+    });*/
   }
 }

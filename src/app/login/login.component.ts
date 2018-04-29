@@ -18,15 +18,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
   onSubmitLogin(){
-    this.authService.loginEmail(this.email,this.password)
+    /*this.authService.loginEmail(this.email,this.password)
     .then((res)=> {
      console.log("USUARIO LOGEADO SEXIMENTE") 
     }).catch((err) => {
       console.log("DUCHAS PAPI") 
 
-    });
+    });*/
   }
 
   onClickFacebookLogin(){

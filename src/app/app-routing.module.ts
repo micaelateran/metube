@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ReproductorComponent } from './reproductor/reproductor.component';
+import { FileUploadComponent} from './file-upload/file-upload.component';
 import { Component } from '@angular/core';
 
 
@@ -15,7 +16,7 @@ const routes: Routes = [
     {path: 'register',component:RegisterComponent},
     {path: 'users',component:UsuariosComponent},
     {path: 'watch',component:ReproductorComponent},
-
+    {path: 'upload',component:FileUploadComponent}
 
 ];
 

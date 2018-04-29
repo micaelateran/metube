@@ -10,10 +10,10 @@ import { ReproductorComponent } from './reproductor/reproductor.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InterfazRetosComponent } from './interfaz-retos/interfaz-retos.component';
 
-//import { AngularFireModule } from 'angularfire2';
-//import { AngularFirestoreModule } from 'angularfire2/firestore'
-//import { AngularFireStorageModule } from 'angularfire2/storage'
-//import {AngularFireAuthModule} from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore'
+import { AngularFireStorageModule } from 'angularfire2/storage'
+import {AngularFireAuthModule} from 'angularfire2/auth';
 
 
 import { LoginComponent } from './login/login.component';
@@ -52,9 +52,9 @@ import { HomePageComponent } from './home-page/home-page.component';
     VgBufferingModule,
     FormsModule,
     AppRoutingModule,
-    //AngularFireModule.initializeApp(environment.firebaseConfig),
-   // AngularFireStorageModule,
-  // AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFireAuthModule,
 
   ],
   providers: [AuthService],
