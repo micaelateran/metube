@@ -11,20 +11,34 @@ import { FormularioRegistrarUsuarioComponent } from './formulario-registrar-usua
 import { NavbarComponent } from './navbar/navbar.component';
 import { InterfazRetosComponent } from './interfaz-retos/interfaz-retos.component';
 
+import { AngularFireModule } from 'angularfire2';
+//import { AngularFirestoreModule } from 'angularfire2/firestore'
+import { AngularFireStorageModule } from 'angularfire2/storage'
+
+import { environment } from '../environments/environment';
+import { DropZoneDirective } from './drop-zone.directive';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { FileSizePipe } from './file-size.pipe'
+
 @NgModule({
   declarations: [
     AppComponent,
     ReproductorComponent,
     FormularioRegistrarUsuarioComponent,
     NavbarComponent,
-    InterfazRetosComponent
+    InterfazRetosComponent,
+    DropZoneDirective,
+    FileUploadComponent,
+    FileSizePipe
   ],
   imports: [
     BrowserModule,
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
-    VgBufferingModule
+    VgBufferingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,74 @@
+<div class="dropzone" 
+      dropZone
+      (hovered)="toggleHover($event)"
+      (dropped)="startUpload($event)"
+      [class.hovering]="isHovering">
+      <h3>Sube tu video</h3>
+      <div class="file">
+          <label class="file-label">
+          <input class="file-input" type="file" (change)="startUpload($event.target.files)">
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fa fa-upload"></i>
+              </span>
+              <span class="file-label">
+                o selecciona un archivo...
+              </span>
+            </span>
+          </label>
+        </div>
+  </div>
+
+<div class="progreso">
+  <div *ngIf="percentage | async as pct">
+
+    <progress class="progress is-info" 
+              [value]="pct" 
+              max="100">        
+    </progress>
+
+    {{ pct | number }}%
+
+  </div>
+
+  <div *ngIf="percentage | async as pct">
+
+    <progress class="progress is-info" 
+              [value]="pct" 
+              max="100">        
+    </progress>
+
+    {{ pct | number }}%
+
+    <div *ngIf="percentage | async as pct">
+
+      <progress class="progress is-info" 
+                [value]="pct" 
+                max="100">        
+      </progress>
+    
+      {{ pct | number }}%
+    
+    </div>
+
+  </div>
+
+  <div *ngIf="snapshot | async as snap">
+    {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }} 
+
+    <div *ngIf="downloadURL | async as url">
+      <h3>Results!</h3>
+      <img [src]="url"><br>
+      <a [href]="url" target="_blank" rel="noopener">Descargame</a>
+    </div> 
+
+    <button (click)="task.pause()" class="button is-warning" [disabled]="!isActive(snap)">Pausar</button>
+    <button (click)="task.cancel()" class="button is-danger" [disabled]="!isActive(snap)">Cancelar</button>
+    <button (click)="task.resume()" class="button is-info"   [disabled]="!(snap?.state === 'paused')">Reanudar</button>
+
+  </div>
+</div>
+
+    
+
+
