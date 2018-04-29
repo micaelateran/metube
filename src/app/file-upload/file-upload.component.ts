@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
+//import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
 //import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 export class FileUploadComponent {
 
   // Main task 
-  task: AngularFireUploadTask;
+  //task: AngularFireUploadTask;
 
   // Progress monitoring
   percentage: Observable<number>;
@@ -24,7 +24,9 @@ export class FileUploadComponent {
   // State for dropzone CSS toggling
   isHovering: boolean;
 
-  constructor(private storage: AngularFireStorage) { 
+  constructor(
+   // private storage: AngularFireStorage
+  ) { 
     //db.firestore.settings({ timestampsInSnapshots: true });
   }
 
@@ -50,14 +52,14 @@ export class FileUploadComponent {
     const customMetadata = { app: 'My AngularFire-powered PWA!' };
 
     // The main task
-    this.task = this.storage.upload(path, file, { customMetadata })
+    //this.task = this.storage.upload(path, file, { customMetadata })
 
     // Progress monitoring
-    this.percentage = this.task.percentageChanges();
-    this.snapshot   = this.task.snapshotChanges()
+    //this.percentage = this.task.percentageChanges();
+    //this.snapshot   = this.task.snapshotChanges()
 
     // The file's download URL
-    this.downloadURL = this.task.downloadURL(); 
+  //  this.downloadURL = this.task.downloadURL(); 
   }
 
   // Determines if the upload task is active

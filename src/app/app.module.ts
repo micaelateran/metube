@@ -7,29 +7,42 @@ import {VgBufferingModule} from 'videogular2/buffering';
 
 import { AppComponent } from './app.component';
 import { ReproductorComponent } from './reproductor/reproductor.component';
-import { FormularioRegistrarUsuarioComponent } from './formulario-registrar-usuario/formulario-registrar-usuario.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InterfazRetosComponent } from './interfaz-retos/interfaz-retos.component';
 
-import { AngularFireModule } from 'angularfire2';
+//import { AngularFireModule } from 'angularfire2';
 //import { AngularFirestoreModule } from 'angularfire2/firestore'
-import { AngularFireStorageModule } from 'angularfire2/storage'
+//import { AngularFireStorageModule } from 'angularfire2/storage'
+//import {AngularFireAuthModule} from 'angularfire2/auth';
 
+
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { environment } from '../environments/environment';
 import { DropZoneDirective } from './drop-zone.directive';
 import { FileUploadComponent } from './file-upload/file-upload.component';
-import { FileSizePipe } from './file-size.pipe'
+import { FileSizePipe } from './file-size.pipe';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './auth.service';
+import {FormsModule} from '@angular/forms';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { HomePageComponent } from './home-page/home-page.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ReproductorComponent,
-    FormularioRegistrarUsuarioComponent,
     NavbarComponent,
     InterfazRetosComponent,
     DropZoneDirective,
     FileUploadComponent,
-    FileSizePipe
+    FileSizePipe,
+    LoginComponent,
+    RegisterComponent,
+    UsuariosComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,10 +50,14 @@ import { FileSizePipe } from './file-size.pipe'
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireStorageModule
+    FormsModule,
+    AppRoutingModule,
+    //AngularFireModule.initializeApp(environment.firebaseConfig),
+   // AngularFireStorageModule,
+  // AngularFireAuthModule,
+
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
