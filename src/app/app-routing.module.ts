@@ -8,8 +8,6 @@ import { ReproductorComponent } from './reproductor/reproductor.component';
 import { FileUploadComponent} from './file-upload/file-upload.component';
 import { Component } from '@angular/core';
 
-
-
 const routes: Routes = [
     {path: '',component:HomePageComponent},
     {path: 'login',component:LoginComponent},
@@ -17,7 +15,6 @@ const routes: Routes = [
     {path: 'users',component:UsuariosComponent},
     {path: 'watch',component:ReproductorComponent},
     {path: 'upload',component:FileUploadComponent}
-
 ];
 
 @NgModule({

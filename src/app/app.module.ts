@@ -30,6 +30,7 @@ import {FormsModule} from '@angular/forms';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AlertModule } from 'ngx-bootstrap';
+import { DataService } from './data.service';
 
 
 
@@ -62,7 +63,7 @@ import { AlertModule } from 'ngx-bootstrap';
     AngularFireAuthModule,
 
   ],
-  providers: [AuthService],
+  providers: [AuthService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

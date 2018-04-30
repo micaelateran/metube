@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-reproductor',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReproductorComponent implements OnInit {
 
-  constructor() { }
+  private id:string;
+
+  constructor(private data : DataService) { 
+    this.id = this.data.getVideoID();
+  }
 
   ngOnInit() {
   }
