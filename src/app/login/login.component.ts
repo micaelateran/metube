@@ -20,17 +20,34 @@ export class LoginComponent implements OnInit {
   }
   
   onSubmitLogin(){
-    /*this.authService.loginEmail(this.email,this.password)
+    this.authService.loginEmail(this.email,this.password)
     .then((res)=> {
      console.log("USUARIO LOGEADO SEXIMENTE") 
     }).catch((err) => {
       console.log("DUCHAS PAPI") 
 
-    });*/
+    });
   }
 
-  onClickFacebookLogin(){
+  onClickGoogleLogin() {
+    this.authService.loginGoogle()
+     .then((res) => {
+         //
+     }).catch( err => console.log(err.message));
+   }
+ 
+   onClickFacebookLogin() {
+     this.authService.loginFacebook()
+       .then((res) => {
+           //
+       }).catch( err => console.log(err.message));
+   }
+ 
+   onClickTwitterLogin() {
+     this.authService.loginTwitter()
+       .then((res) => {
+         //
+       }).catch (err => console.log(err.message));
+   }
 
-    this.authService.loginFacebook();
-}
 }

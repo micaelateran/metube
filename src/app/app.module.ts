@@ -14,6 +14,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore'
 import { AngularFireStorageModule } from 'angularfire2/storage'
 import {AngularFireAuthModule} from 'angularfire2/auth';
+import { AngularFireDatabaseModule} from 'angularfire2/database';
+
 
 
 import { LoginComponent } from './login/login.component';
@@ -27,6 +29,7 @@ import { AuthService } from './auth.service';
 import {FormsModule} from '@angular/forms';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { AlertModule } from 'ngx-bootstrap';
 
 
 
@@ -45,6 +48,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     HomePageComponent,
   ],
   imports: [
+    AlertModule.forRoot(),
     BrowserModule,
     VgCoreModule,
     VgControlsModule,
@@ -54,6 +58,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
+    AngularFireDatabaseModule,
     AngularFireAuthModule,
 
   ],

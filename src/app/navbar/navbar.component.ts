@@ -12,22 +12,33 @@ export class NavbarComponent implements OnInit {
   public isLogin: boolean;
   public nombreUsuario: string;
   public emailUsuario: string;
+  public fotoUsuario: string;
 
   constructor(
     public authService: AuthService
   ) { }
 
   ngOnInit() {
- //   this.authService.getAuth().subscribe(auth =>{
- //     if(auth){
-  //      this.isLogin=true;
-  //      this.nombreUsuario =auth.displayName;
-  //      this.emailUsuario = auth.emailUsuario;
-  //    }
-  //    else{
-  //      this.isLogin=false;
-  //    }
-  //  });
+    this.authService.getAuth().subscribe(auth =>{
+      if(auth){
+        this.isLogin=true;
+
+        if(this.authService.getSocialPicture()!=null){
+        this.nombreUsuario =auth.displayName;
+        this.fotoUsuario = this.authService.getSocialPicture();
+      }
+        else{
+        this.nombreUsuario =this.authService.getEmail();
+        this.fotoUsuario = this.authService.getPicture();
+        console.log(this.authService.getPicture());
+
+        }
+
+     }
+      else{
+        this.isLogin=false;
+      }
+    });
   }
 
   onClickLogout(){

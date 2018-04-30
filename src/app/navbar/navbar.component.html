@@ -6,11 +6,9 @@
 
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#" routerLink="/upload"> SUBIR VIDEOS <span class="sr-only">(current)</span></a>
-      </li>
+
       <li class="nav-item active" *ngIf="isLogin">
-          <a class="nav-link" href="#" routerLink="/watch"> SUBIR VIDEOS <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#" routerLink="/upload"> SUBIR VIDEOS <span class="sr-only">(current)</span></a>
         </li>
 
     </ul>
@@ -18,15 +16,20 @@
   </div>
   <ul  class="navbar-nav mx-auto">
       <li class="nav-item" *ngIf="!isLogin">
-        <a class="nav-link" href="#" routerLink="/login">Login</a>
+        <a class="nav-link"  routerLink="/login">Login</a>
       </li>
       <li class="nav-item" *ngIf="!isLogin">
-        <a class="nav-link" href="#" routerLink="/register">Registrarse</a>
+        <a class="nav-link"  routerLink="/register">Registrarse</a>
       </li>
       <li class="nav-item" *ngIf="isLogin">
-        <a class="nav-link" href="#" (click)="onClickLogout()" >Salir</a>
+        <a class="nav-link">{{nombreUsuario}}</a>
       </li>
- 
+      <li class="nav-item" *ngIf="isLogin">
+        <img src="{{fotoUsuario}}" alt = "pic">
+      </li>
+      <li class="nav-item " *ngIf="isLogin">
+        <a class="nav-link"  (click)="onClickLogout()" >Salir</a>
+      </li>
     </ul>
 </nav>
 
