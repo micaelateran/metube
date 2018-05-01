@@ -20,7 +20,7 @@ import { AngularFireDatabaseModule} from 'angularfire2/database';
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import { DropZoneDirective } from './drop-zone.directive';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { FileSizePipe } from './file-size.pipe';

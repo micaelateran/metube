@@ -8,7 +8,7 @@ import { DataService } from '../data.service';
 })
 export class ReproductorComponent implements OnInit {
 
-  private id:string;
+  public id:string;
 
   constructor(private data : DataService) { 
     this.id = this.data.getVideoID();
