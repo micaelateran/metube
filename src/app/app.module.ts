@@ -6,33 +6,29 @@ import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
 
 import { AppComponent } from './app.component';
-import { ReproductorComponent } from './reproductor/reproductor.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { InterfazRetosComponent } from './interfaz-retos/interfaz-retos.component';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore'
 import { AngularFireStorageModule } from 'angularfire2/storage'
-import {AngularFireAuthModule} from 'angularfire2/auth';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
 
-
-
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { environment } from '../environments/environment.prod';
-import { DropZoneDirective } from './drop-zone.directive';
-import { FileUploadComponent } from './file-upload/file-upload.component';
-import { FileSizePipe } from './file-size.pipe';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthService } from './auth.service';
 import {FormsModule} from '@angular/forms';
-import { UsuariosComponent } from './usuarios/usuarios.component';
-import { HomePageComponent } from './home-page/home-page.component';
 import { AlertModule } from 'ngx-bootstrap';
-import { DataService } from './data.service';
-
-
+import { ReproductorComponent } from './manejo_de_videos/reproductor/reproductor.component';
+import { NavbarComponent } from './vistas/navbar/navbar.component';
+import { InterfazRetosComponent } from './vistas/interfaz-retos/interfaz-retos.component';
+import { DropZoneDirective } from './directivas/drop-zone.directive';
+import { FileUploadComponent } from './manejo_de_videos/file-upload/file-upload.component';
+import { FileSizePipe } from './pipes/file-size.pipe';
+import { LoginComponent } from './manejo-de-usuarios/login/login.component';
+import { RegisterComponent } from './manejo-de-usuarios/register/register.component';
+import { UsuariosComponent } from './manejo-de-usuarios/usuarios/usuarios.component';
+import { HomePageComponent } from './vistas/home-page/home-page.component';
+import { AuthService } from './servicios/auth.service';
+import { DataService } from './servicios/data.service';
 
 @NgModule({
   declarations: [
