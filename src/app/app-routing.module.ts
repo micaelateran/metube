@@ -5,8 +5,8 @@ import { HomePageComponent } from './vistas/home-page/home-page.component';
 import { LoginComponent } from './manejo-de-usuarios/login/login.component';
 import { RegisterComponent } from './manejo-de-usuarios/register/register.component';
 import { UsuariosComponent } from './manejo-de-usuarios/usuarios/usuarios.component';
-import { ReproductorComponent } from './manejo_de_videos/reproductor/reproductor.component';
-import { FileUploadComponent } from './manejo_de_videos/file-upload/file-upload.component';
+import { ReproductorComponent } from './manejo-de-videos/reproductor/reproductor.component';
+import { FileUploadComponent } from './manejo-de-videos/file-upload/file-upload.component';
 
 const routes: Routes = [
     {path: '',component:HomePageComponent},
