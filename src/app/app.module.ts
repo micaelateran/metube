@@ -16,7 +16,6 @@ import { AngularFireDatabaseModule} from 'angularfire2/database';
 import { environment } from '../environments/environment.prod';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from '@angular/forms';
-import { AlertModule } from 'ngx-bootstrap';
 import { ReproductorComponent } from './manejo-de-videos/reproductor/reproductor.component';
 import { NavbarComponent } from './vistas/navbar/navbar.component';
 import { InterfazRetosComponent } from './vistas/interfaz-retos/interfaz-retos.component';
@@ -29,6 +28,9 @@ import { UsuariosComponent } from './manejo-de-usuarios/usuarios/usuarios.compon
 import { HomePageComponent } from './vistas/home-page/home-page.component';
 import { AuthService } from './servicios/auth.service';
 import { DataService } from './servicios/data.service';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgxPageScrollModule} from 'ngx-page-scroll';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,6 @@ import { DataService } from './servicios/data.service';
     HomePageComponent,
   ],
   imports: [
-    AlertModule.forRoot(),
     BrowserModule,
     VgCoreModule,
     VgControlsModule,
@@ -57,7 +58,8 @@ import { DataService } from './servicios/data.service';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-
+    NgbModule.forRoot(),
+    NgxPageScrollModule
   ],
   providers: [AuthService,DataService],
   bootstrap: [AppComponent]
