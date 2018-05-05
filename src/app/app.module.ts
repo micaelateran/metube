@@ -32,6 +32,9 @@ import { DataService } from './servicios/data.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import { DatabaseService } from './servicios/database.service';
+import { CalificadorComponent } from './manejo-de-videos/calificador/calificador.component';
+import { PerfilComponent } from './manejo-de-usuarios/perfil/perfil.component';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +49,8 @@ import { DatabaseService } from './servicios/database.service';
     RegisterComponent,
     UsuariosComponent,
     HomePageComponent,
+    CalificadorComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
