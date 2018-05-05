@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../../servicios/data.service';
+import { DatabaseService } from '../../servicios/database.service';
+
 
 @Component({
   selector: 'app-interfaz-retos',
@@ -9,13 +11,14 @@ import { DataService } from '../../servicios/data.service';
 })
 export class InterfazRetosComponent implements OnInit {
 
-  constructor(private router:Router,private data: DataService) { }
+  constructor(private router:Router,private data: DataService, public database:DatabaseService) { }
 
   ngOnInit() {
   }
 
   reto1(): void{
     this.data.setVideoID("/v0/b/metube-120e9.appspot.com/o/test%2F1525036482246_Trucos%20de%20yoyo.mp4?alt=media&token=f8877c1a-3dbd-4795-96b0-82c01b65bb1d");
+    this.database.añadirPrueba();
     this.router.navigateByUrl('/watch');
   }
 

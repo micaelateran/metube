@@ -31,6 +31,7 @@ import { DataService } from './servicios/data.service';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
+import { DatabaseService } from './servicios/database.service';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import {NgxPageScrollModule} from 'ngx-page-scroll';
     VgBufferingModule,
     FormsModule,
     AppRoutingModule,
+    AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     AngularFireDatabaseModule,
@@ -61,7 +63,7 @@ import {NgxPageScrollModule} from 'ngx-page-scroll';
     NgbModule.forRoot(),
     NgxPageScrollModule
   ],
-  providers: [AuthService,DataService],
+  providers: [AuthService,DataService,DatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
