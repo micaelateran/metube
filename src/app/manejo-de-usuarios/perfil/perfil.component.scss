@@ -1,0 +1,20 @@
+.etiqueta{
+    size: 95px;
+    color: white;  
+}
+
+.perfil{
+    border-radius: 90%;
+}
+
+.rank-label-container {
+    margin-top: -19px;
+    /* z-index: 1000; */
+    text-align: center;
+}
+
+.label.label-default.rank-label {
+    background-color: rgb(43, 161, 136);
+    padding: 5px 10px 5px 10px;
+    border-radius: 27px;
+}

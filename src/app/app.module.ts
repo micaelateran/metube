@@ -34,6 +34,8 @@ import {NgxPageScrollModule} from 'ngx-page-scroll';
 import { DatabaseService } from './servicios/database.service';
 import { CalificadorComponent } from './manejo-de-videos/calificador/calificador.component';
 import { PerfilComponent } from './manejo-de-usuarios/perfil/perfil.component';
+import { ComentariosComponent } from './vistas/comentarios/comentarios.component';
+
 
 
 @NgModule({
@@ -50,7 +52,8 @@ import { PerfilComponent } from './manejo-de-usuarios/perfil/perfil.component';
     UsuariosComponent,
     HomePageComponent,
     CalificadorComponent,
-    PerfilComponent
+    PerfilComponent,
+    ComentariosComponent
   ],
   imports: [
     BrowserModule,
