@@ -35,8 +35,9 @@ import { DatabaseService } from './servicios/database.service';
 import { CalificadorComponent } from './manejo-de-videos/calificador/calificador.component';
 import { PerfilComponent } from './manejo-de-usuarios/perfil/perfil.component';
 import { ComentariosComponent } from './vistas/comentarios/comentarios.component';
-
-
+import { ListaVideosComponent } from './vistas/lista-videos/lista-videos.component';
+import { InterfazSubirVideosComponent } from './vistas/interfaz-subir-videos/interfaz-subir-videos.component';
+import { InterfazSubirRetosComponent } from './vistas/interfaz-subir-retos/interfaz-subir-retos.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,10 @@ import { ComentariosComponent } from './vistas/comentarios/comentarios.component
     HomePageComponent,
     CalificadorComponent,
     PerfilComponent,
-    ComentariosComponent
+    ComentariosComponent,
+    ListaVideosComponent,
+    InterfazSubirVideosComponent,
+    InterfazSubirRetosComponent
   ],
   imports: [
     BrowserModule,

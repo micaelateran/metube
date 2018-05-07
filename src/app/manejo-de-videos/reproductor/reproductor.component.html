@@ -1,4 +1,5 @@
 <br>
+<div *ngFor="let video of videos | async">
 <vg-player>
     <vg-overlay-play></vg-overlay-play>
     <vg-buffering></vg-buffering>
@@ -26,10 +27,12 @@
         <vg-fullscreen></vg-fullscreen>
     </vg-controls>
   
-    <video [src]="id" [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin>
-        <source src="" type="video/mp4">
+    <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin>
+        <source src={{video.videoUrl}} type="video/mp4">
     </video>
   </vg-player>  
   <br><br>
   <app-calificador></app-calificador>
   <app-comentarios></app-comentarios>
+
+</div>

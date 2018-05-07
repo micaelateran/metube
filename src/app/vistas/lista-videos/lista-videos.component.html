@@ -1,0 +1,32 @@
+<div *ngFor="let reto of retos | async" class="container">
+    <br>
+    <b><h1 align=MIDDLE>{{reto.nombre}}</h1></b>
+    <div align="middle">
+       <br>
+       <h4>¿Quieres ser parte de este reto?</h4>
+       <br>
+       <button class="btn" [(ngModel)]="reto.codigoReto" name="botonSubirVideo" ngDefaultControl (click)="subirVideo(reto.codigoReto)" role="button">SUBE TU VIDEO</button>
+    </div>
+    <br>
+    <div class="container">
+       <br>
+       <div class="videos" *ngFor="let video of videos | async">
+          <div class="row">
+             <div class="col-sm-6">
+              <button class="miniaturas" [(ngModel)]="video.codigoVideo" name="botonVideo" ngDefaultControl (click)="ver(video.codigoVideo)">
+                  <input width="300" height="300" class="imagen" type=image src={{video.miniaturaUrl}}>
+              </button>
+             </div>
+             <div class="col-sm-6">
+                <br><br><br>
+                <h4 class="datos">Usuario: {{video.codigoUsuario}}</h4>
+                <br><br>
+                <h4 class="datos">Calificación: {{video.calificacion}}</h4>
+             </div>
+             <br>
+          </div>
+          <br>
+          <hr>
+       </div>
+    </div>
+ </div>

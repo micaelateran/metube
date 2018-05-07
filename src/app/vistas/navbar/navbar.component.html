@@ -1,35 +1,32 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <img src="https://firebasestorage.googleapis.com/v0/b/metube-120e9.appspot.com/o/logo.png?alt=media&token=7384564d-3b76-4795-bc7a-c11356a832aa">
+  <div class="divider"></div>
   <a class="navbar-brand" href="#">ME<span class="text-danger">TUBE</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarColor02">
-    <ul class="navbar-nav mr-auto">
-
-      <li class="nav-item active" *ngIf="isLogin">
-          <a class="nav-link" href="#" routerLink="/upload"> SUBIR VIDEOS <span class="sr-only">(current)</span></a>
+     <ul class="navbar-nav mr-auto">
+        <li class="nav-item active" *ngIf="isLogin">
+           <a class="nav-link" href="#" routerLink="/challenge"> ¡SUBE TU RETO! <span class="sr-only">(current)</span></a>
         </li>
-
-    </ul>
-
+     </ul>
   </div>
   <ul  class="navbar-nav mx-auto">
-      <li class="nav-item" *ngIf="!isLogin">
-        <a class="nav-link"  routerLink="/login">Login</a>
-      </li>
-      <li class="nav-item" *ngIf="!isLogin">
+     <li class="nav-item" *ngIf="!isLogin">
+        <a class="nav-link"  routerLink="/login">Iniciar sesión</a>
+     </li>
+     <li class="nav-item" *ngIf="!isLogin">
         <a class="nav-link"  routerLink="/register">Registrarse</a>
-      </li>
-      <li class="nav-item" *ngIf="isLogin">
+     </li>
+     <li class="nav-item" *ngIf="isLogin">
         <a class="nav-link" routerLink="/profile">{{nombreUsuario}}</a>
-      </li>
-      <li class="nav-item" *ngIf="isLogin">
+     </li>
+     <li class="nav-item" *ngIf="isLogin">
         <img src="{{fotoUsuario}}" alt = "pic">
-      </li>
-      <li class="nav-item " *ngIf="isLogin">
+     </li>
+     <li class="nav-item " *ngIf="isLogin">
         <a class="nav-link"  (click)="onClickLogout()" >Salir</a>
-      </li>
-    </ul>
+     </li>
+  </ul>
 </nav>
-

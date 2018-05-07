@@ -1,5 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../servicios/data.service';
+import { Router } from '@angular/router';
+import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+
+interface Video{
+  calificacion: number;
+  codigoReto: string;
+  codigoUsuario: string;
+  codigoVideo: string;
+  miniaturaUrl: string;
+  videoUrl: string;
+}
 
 @Component({
   selector: 'app-reproductor',
@@ -8,13 +20,32 @@ import { DataService } from '../../servicios/data.service';
 })
 export class ReproductorComponent implements OnInit {
 
-  public id:string;
+  url: string;
+  id: string;
 
-  constructor(private data : DataService) { 
-    this.id = this.data.getVideoID();
+  coleccionDeVideos: AngularFirestoreCollection<Video>;
+  videos: Observable<Video[]>;
+
+  constructor(private router:Router, private afs: AngularFirestore) { 
+    this.url = router.url;
+    this.id = "";
+
+    let concatenar = false;
+
+    for (let caracter of this.url){
+      if(caracter == '?' || caracter == '='){
+        concatenar = true;
+        continue;
+      }
+      if(concatenar){
+        this.id += caracter;
+      }
+    }
   }
 
   ngOnInit() {
+    this.coleccionDeVideos = this.afs.collection('Videos', ref => {return ref.where('codigoVideo','==', this.id)});
+    this.videos = this.coleccionDeVideos.valueChanges();
   }
 
 }

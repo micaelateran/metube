@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
+import { DataService } from '../../servicios/data.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'file-upload',
@@ -20,9 +22,7 @@ export class FileUploadComponent {
 
   isHovering: boolean;
 
-  constructor(
-    private storage: AngularFireStorage
-  ) { }
+  constructor(private data: DataService, private storage: AngularFireStorage) { }
   
   toggleHover(event: boolean) {
     this.isHovering = event;
@@ -31,8 +31,8 @@ export class FileUploadComponent {
   startUpload(event: FileList) {
     const file = event.item(0)
 
-    if (file.type.split('/')[0] !== 'video') { 
-      console.error('unsupported file type :( ')
+    if (file.type.split('/')[0] !== 'video' && file.type.split('/')[0] !== 'image') { 
+      console.error('Tipo de archivo no admitido :( ')
       return;
     }
 
@@ -46,6 +46,10 @@ export class FileUploadComponent {
     this.snapshot   = this.task.snapshotChanges()
 
     this.downloadURL = this.task.downloadURL(); 
+  }
+
+  iniciar(){
+    console.log("Iniciado");
   }
 
   isActive(snapshot) {
