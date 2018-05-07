@@ -46,6 +46,7 @@ export class FileUploadComponent {
     this.snapshot   = this.task.snapshotChanges()
 
     this.downloadURL = this.task.downloadURL(); 
+    
   }
 
   iniciar(){

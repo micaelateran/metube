@@ -1,4 +1,4 @@
-interface ILib {
+  interface ILib {
     alpha: string[],
     number: string[]
   }
