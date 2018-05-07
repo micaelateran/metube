@@ -7,10 +7,21 @@ export class DataService {
     videoID = {id: ""};
     retoID = {id: ""};
 
+    isLogin = {login: false};
+
     private messageSource = new BehaviorSubject<String>("Default Message");
     currentMessage = this.messageSource.asObservable();
 
-    constructor(){ }
+    constructor(){ 
+    }
+
+    setLogin(log){
+        this.isLogin = {login: log}
+    }
+
+    getLogin(){
+        return this.isLogin.login;
+    }
 
     setVideoID(codigo){
         this.videoID = {id:codigo};

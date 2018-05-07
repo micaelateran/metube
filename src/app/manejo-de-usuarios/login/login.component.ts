@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../servicios/auth.service';
+import { Router } from '@angular/router';
+import { DataService } from '../../servicios/data.service';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +13,7 @@ export class LoginComponent implements OnInit {
   public email : string;
   public password: string;
 
-  constructor(
-    public authService: AuthService 
+  constructor(private data: DataService, public authService: AuthService, private router: Router
   ) { }
 
   ngOnInit() {
@@ -21,10 +22,11 @@ export class LoginComponent implements OnInit {
   onSubmitLogin(){
     this.authService.loginEmail(this.email,this.password)
     .then((res)=> {
-     console.log("USUARIO LOGEADO SEXIMENTE") 
+     console.log("USUARIO LOGEADO SEXIMENTE");
+      this.data.setLogin(true);
+     this.router.navigateByUrl('/');
     }).catch((err) => {
       console.log("DUCHAS PAPI") 
-
     });
   }
 

@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" *ngIf="login">
         <br>
         <br>
         <h1 class="etiqueta" align=MIDDLE>BIENVENIDO A TU PERFIL </h1>
         <br>
         <div class="perfil" align=MIDDLE>
-            <img src="http://eskipaper.com/images/closeup-tulips-nature-1.jpg" width="400px" height="300" class="rounded-circle">
+            <img src="http://eskipaper.com/images/closeup-tulips-nature-1.jpg" width="400px" height="400px" class="rounded-circle">
             <div class="rank-label-container">
                     <span class="label label-default rank-label">NOMBRE USUARIO</span>
              </div>
@@ -25,27 +25,18 @@
            <table class="table table-hover">
               <thead>
                  <tr>
-                    <th style= "Color:gray">Categoria</th>
+                    <th style= "Color:gray">Categoría</th>
                     <th style= "Color:gray">Estrellas</th>
-                    <th style= "Color:gray">Vea el video!</th>
+                    <th style= "Color:gray">¡Vea el video!</th>
+                    <th style= "Color:gray">Opciones</th>                    
                  </tr>
               </thead>
               <tbody>
                  <tr>
                     <td style= "Color:white">**Conexion Base de Datos para Categoria Video**</td>
                     <td style= "Color:white">**Conteo base de datos Aca**</td>
-                    <td style= "Color:white"><button style= "Color:rgb(245, 245, 245) ; background-color:brown" type="button" href="**Link del Video Aca**" class="btn">Mira el Video</button>
-                    </td>
-                 </tr>
-                 <tr>
-                    <td style= "Color:white">**Conexion Base de Datos para Categoria Video**</td>
-                    <td style= "Color:white">**Conteo base de datos Aca**</td>
-                    <td style= "Color:white"><button style= "Color:rgb(245, 245, 245) ; background-color:brown" type="button" href="**Link del Video Aca**" class="btn">Mira el Video</button></td>
-                 </tr>
-                 <tr>
-                    <td style= "Color:white">**Conexion Base de Datos para Categoria Video**</td>
-                    <td style= "Color:white">**Conteo base de datos Aca**</td>
-                    <td style= "Color:white"><button style= "Color:rgb(245, 245, 245) ; background-color:brown" type="button" href="**Link del Video Aca**" class="btn">Mira el Video</button></td>
+                    <td style= "Color:white"><button style= "Color:rgb(245, 245, 245) ; background-color:rgb(39, 173, 51)" type="button" href="**Link del Video Aca**" class="btn">Mira el video</button></td>
+                    <td style= "Color:white"><button style= "Color:rgb(245, 245, 245) ; background-color:brown" type="button" href="**Link del Video Aca**" class="btn">Eliminar video</button></td>
                  </tr>
               </tbody>
            </table>

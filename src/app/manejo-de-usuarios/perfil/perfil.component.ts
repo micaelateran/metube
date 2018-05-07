@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../servicios/data.service';
 
 @Component({
   selector: 'app-perfil',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor() { }
+  login: boolean;
+
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+    this.login = this.data.getLogin();
   }
 
 }
