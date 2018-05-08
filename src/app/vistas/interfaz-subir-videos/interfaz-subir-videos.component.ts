@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { DataService } from '../../servicios/data.service';
 import { DatabaseService } from '../../servicios/database.service';
-import generateId from '../idGenerator';
+import generateId from '../../funciones/idGenerator';
 
 interface Reto{
   codigoReto: string;

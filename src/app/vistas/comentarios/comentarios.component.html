@@ -1,29 +1,30 @@
 <div class="container">
-        <label class="etiqueta">Comentarios</label>
-        <div class="actionBox">
-            <ul class="commentList">
-                <li>
-                    <div class="commenterImage">
-                      <img src="http://placekitten.com/50/50" />
-                    </div>
-                    <div class="commentText">
-                            <b>
-                                <p class="usuario">Adriana Orellana</p>
-                            </b>
-                            <p class="comentario">Holi!</p> <span class="date sub-text">05/05/2018</span>
-                        </div>
-                </li>
-        
-            </ul>
-            <form class="form-inline" role="form">
-                <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Tu comentario" />
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-default">Añadir</button>
-                </div>
-            </form>
+    <label class="etiqueta">Comentarios</label>
+    <div class="actionBox">
+        <div *ngFor="let comentario of comentarios | async">
+                <ul class="commentList">
+                        <li>
+                            <div class="commenterImage">
+                              <img src={{fotoPerfil}}/>
+                            </div>
+                            <div class="commentText">
+                                    <b>
+                                        <p class="usuario">{{comentario.codigoUsuario}}</p>
+                                    </b>
+                                    <p class="comentario">{{comentario.texto}}</p> <span class="date sub-text">{{comentario.fechaPublicacion}}</span>
+                                </div>
+                        </li>
+                    </ul>
         </div>
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <input id="texto" class="form-control" type="text" placeholder="Tu comentario" />
+            </div>
+            <div class="form-group">
+                <button (click)="agregarComentario()" class="btn btn-default">Añadir</button>
+            </div>
+        </form>
     </div>
-    <br>
-    <br>
+</div>
+<br>
+<br>

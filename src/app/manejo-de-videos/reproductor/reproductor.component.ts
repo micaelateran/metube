@@ -3,6 +3,7 @@ import { DataService } from '../../servicios/data.service';
 import { Router } from '@angular/router';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
+import separarURL from '../../funciones/separador';
 
 interface Video{
   calificacion: number;
@@ -27,20 +28,8 @@ export class ReproductorComponent implements OnInit {
   videos: Observable<Video[]>;
 
   constructor(private router:Router, private afs: AngularFirestore) { 
-    this.url = router.url;
-    this.id = "";
-
-    let concatenar = false;
-
-    for (let caracter of this.url){
-      if(caracter == '?' || caracter == '='){
-        concatenar = true;
-        continue;
-      }
-      if(concatenar){
-        this.id += caracter;
-      }
-    }
+    this.url = this.router.url;
+    this.id = separarURL(this.url);
   }
 
   ngOnInit() {

@@ -12,4 +12,8 @@ export class DatabaseService {
     this.database.collection('Pruebas').add({'nombre': "Joaquin", 'codigo':"vargas"});
   }
 
+  agregarComentario(codigoComentario: string, codigoUsuario: string, codigoVideo: string, fechaPublicacion: Date, texto: string){
+    this.database.collection('Comentarios').add({'codigoComentario': codigoComentario, 'codigoUsuario': codigoUsuario, 'codigoVideo': codigoVideo, 'fechaPublicacion': fechaPublicacion, 'texto': texto});
+  }
+
 }

@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 export class AuthService {
 
   public userEmail;
-  public photoUrl ="https://image.freepik.com/free-icon/unknown-user-symbol_318-54178.jpg";  
+  public photoUrl ="https://firebasestorage.googleapis.com/v0/b/metube-120e9.appspot.com/o/iconoUsuario.png?alt=media&token=0f5309ba-13cb-4fac-b9d4-315e6db5e2b1";  
   constructor(
   public afAuth: AngularFireAuth
   ) { }
@@ -54,8 +54,6 @@ export class AuthService {
   getPicture(){
     return this.photoUrl;
   }
-
-
 
   logout() {
     return this.afAuth.auth.signOut();

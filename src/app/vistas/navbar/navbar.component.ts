@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit {
     this.authService.getAuth().subscribe(auth =>{
       if(auth){
         this.isLogin=true;
+        this.data.setUserID(this.authService.getEmail());
         this.data.setLogin(true);
 
         if(this.authService.getSocialPicture()!=null){
@@ -37,6 +38,7 @@ export class NavbarComponent implements OnInit {
      }
       else{
         this.isLogin=false;
+        this.data.setUserID("");
       }
     });
   }
@@ -44,6 +46,7 @@ export class NavbarComponent implements OnInit {
   onClickLogout(){
     this.authService.logout()
     this.data.setLogin(false);
+    this.data.setUserID("");
     this.router.navigateByUrl('/');
   }
 

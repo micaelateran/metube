@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import generateId from '../idGenerator';
+import generateId from '../../funciones/idGenerator';
 
 @Component({
   selector: 'app-interfaz-subir-retos',

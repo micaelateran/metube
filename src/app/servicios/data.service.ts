@@ -9,6 +9,8 @@ export class DataService {
 
     isLogin = {login: false};
 
+    userID = {id: ""};
+
     private messageSource = new BehaviorSubject<String>("Default Message");
     currentMessage = this.messageSource.asObservable();
 
@@ -37,6 +39,14 @@ export class DataService {
 
     getRetoID(){
         return this.retoID.id;
+    }
+
+    setUserID(codigo){
+        this.userID = {id:codigo};
+    }
+
+    getUserID(){
+        return this.userID.id;
     }
     
 }
