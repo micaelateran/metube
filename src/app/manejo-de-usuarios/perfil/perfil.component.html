@@ -31,11 +31,11 @@
                 <th style= "Color:gray">Opciones</th>                    
              </tr>
           </thead>
-          <tbody>
+          <tbody *ngFor="let video of videos | async">
              <tr>
-                <td style= "Color:white">Singing Challenge</td>
-                <td style= "Color:white">Calificación</td>
-                <td style= "Color:white"><button style= "Color:rgb(245, 245, 245) ; background-color:rgb(39, 173, 51)" type="button" href="**Link del Video Aca**" class="btn">Mira el video</button></td>
+                <td style= "Color:white">{{video.codigoReto}}</td>
+                <td style= "Color:white">{{video.calificacion}}</td>
+                <td style= "Color:white"><button style= "Color:rgb(245, 245, 245) ; background-color:rgb(39, 173, 51)" type="button"  [(ngModel)]="video.codigoVideo" name="botonVideo" ngDefaultControl (click)="verVideo(video.codigoVideo)" class="btn">Mira el video</button></td>
                 <td style= "Color:white"><button style= "Color:rgb(245, 245, 245) ; background-color:brown" type="button" href="**Link del Video Aca**" class="btn">Eliminar video</button></td>
              </tr>
           </tbody>
