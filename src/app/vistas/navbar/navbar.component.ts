@@ -29,10 +29,10 @@ export class NavbarComponent implements OnInit {
         this.fotoUsuario = this.authService.getSocialPicture();
       }
         else{
-        this.nombreUsuario =this.authService.getEmail();
-        this.fotoUsuario = this.authService.getPicture();
-        console.log(this.authService.getPicture());
-
+          this.nombreUsuario =this.authService.getEmail();
+          this.fotoUsuario = this.authService.getPicture();
+          console.log(this.authService.getPicture());
+          
         }
 
      }
