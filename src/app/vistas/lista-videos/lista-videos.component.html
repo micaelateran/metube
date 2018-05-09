@@ -1,32 +1,123 @@
+<!--
+    <div *ngFor="let reto of retos | async" class="container">
+        <br>
+        <b><h1 align=MIDDLE>{{reto.nombre}}</h1></b>
+       
+        <div class="container">
+        <br>
+        <div class="videos" *ngFor="let video of videos | async">
+            <div class="row">
+                <div class="col-sm-6">
+                <button class="miniaturas" [(ngModel)]="video.codigoVideo" name="botonVideo" ngDefaultControl (click)="ver(video.codigoVideo)">
+                    <input width="300" height="300" class="imagen" type=image src={{video.miniaturaUrl}}>
+                </button>
+                </div>
+                <div>
+                    <br><br><br>
+                    <table class="table table-hover">
+                    <tr>
+                        <h5>
+                        <th style= "Color:brown">Nombre: </th>
+                        <td style= "Color:white">{{video.codigoUsuario}}</td>
+                        </h5>
+                    </tr>
+                    <tr>
+                        <h5>
+                        <th style= "Color:brown">Calificacion: </th>                      
+                        <td style= "Color:white">{{video.calificacion}}</td>
+                            </h5>
+                    </tr>    
+                        <tr>
+                            <h5>
+                            <th style= "Color:brown">Fecha: </th>                      
+                            <td style= "Color:white">05/05/2018</td>
+                            </h5>
+                            </tr>
+                </table>
+                </div>
+                <br>
+            </div>
+            <br>
+            <hr>
+        </div>
+        </div>
+    </div>
+-->
+
 <div *ngFor="let reto of retos | async" class="container">
-    <br>
-    <b><h1 align=MIDDLE>{{reto.nombre}}</h1></b>
-    <div align="middle">
-       <br>
-       <h4>¿Quieres ser parte de este reto?</h4>
-       <br>
-       <button class="btn" [(ngModel)]="reto.codigoReto" name="botonSubirVideo" ngDefaultControl (click)="subirVideo(reto.codigoReto)" role="button">SUBE TU VIDEO</button>
-    </div>
-    <br>
-    <div class="container">
-       <br>
-       <div class="videos" *ngFor="let video of videos | async">
-          <div class="row">
-             <div class="col-sm-6">
-              <button class="miniaturas" [(ngModel)]="video.codigoVideo" name="botonVideo" ngDefaultControl (click)="ver(video.codigoVideo)">
-                  <input width="300" height="300" class="imagen" type=image src={{video.miniaturaUrl}}>
-              </button>
-             </div>
-             <div class="col-sm-6">
-                <br><br><br>
-                <h4 class="datos">Usuario: {{video.codigoUsuario}}</h4>
-                <br><br>
-                <h4 class="datos">Calificación: {{video.calificacion}}</h4>
-             </div>
-             <br>
-          </div>
-          <br>
-          <hr>
-       </div>
-    </div>
- </div>
+    <section class="head">
+            <div class="container">
+                <h2 class="text-center"><span>Mi perro viste mejor que tú</span>
+                    <div class="container" align="middle">
+                            <div class="panel">
+                             <div class="panel-body"><br><br>¡Demuestra que tu mascota es inigualable. Es hora de comenzar! <br><span><i class="	fa fa-trophy"></i></span></div>
+                             <br><br>
+                          </div>
+                        </div>
+                    </h2>
+                <div align="middle">
+                    <br>
+                    <h4>¿Quieres ser parte de este reto?</h4>
+                    <br>
+                    <button class="btn" [(ngModel)]="reto.codigoReto" name="botonSubirVideo" ngDefaultControl (click)="subirVideo(reto.codigoReto)" role="button">SUBE TU VIDEO</button>
+                    <br><br>
+                </div>
+                <br>
+            </div>
+        </section>
+
+        <div class="container">
+        <div class="clearfix"></div>
+        <section class="search-box">
+           <div class="container-fluid">
+              <div class="row">
+                    <div class="media">
+                       <button class="miniaturas" [(ngModel)]="video.codigoVideo" name="botonVideo" ngDefaultControl (click)="ver(video.codigoVideo)">
+                       <input width="250" height="200" class="imagen" type=image src="https://www.okchicas.com/wp-content/uploads/2015/04/Perros-disfrazados-27.jpg">
+                       </button>  
+                       <div class="media-body pl-3">
+                          <br>
+                          <div class="nombre"><span><i class="fa fa-user-circle"></i>&nbsp;Usuario</span><br></div>
+                          <div class="stats">
+                             <span><i class="fa fa-thumbs-up"></i>&nbsp;&nbsp;Calificación: </span>
+                             <br><br>
+                          </div>
+                          <div class="fecha">05/05/2018</div>  
+                       </div>
+                    </div>
+                    
+                    <div class="media">
+                            <button class="miniaturas" [(ngModel)]="video.codigoVideo" name="botonVideo" ngDefaultControl (click)="ver(video.codigoVideo)">
+                            <input width="250" height="200" class="imagen" type=image src="https://cdn.molaunhuevo.com/wp-content/uploads/perro-disfraz-pirata-600x641.jpg">
+                        </button>  
+                            <div class="media-body pl-3">
+                                <br>
+                                <div class="nombre"><span><i class="fa fa-user-circle"></i>&nbsp;Usuario</span><br></div>
+                                <div class="stats">
+                                    <span><i class="fa fa-thumbs-up"></i>&nbsp;&nbsp;Calificación: </span>
+                                    <br><br>
+                                </div>
+                                <div class="fecha">05/05/2018</div>  
+                             </div>
+                         </div>
+
+                         <div class="media">
+                                <button class="miniaturas" [(ngModel)]="video.codigoVideo" name="botonVideo" ngDefaultControl (click)="ver(video.codigoVideo)">
+                                <input width="250" height="200" class="imagen" type=image src="http://www.elmegatop.com/wp-content/uploads/50-disfraz-perro-motero-1-662x445.jpg">
+                                </button>  
+                                <div class="media-body pl-3">
+                                    <br>
+                                    <div class="nombre"><span><i class="fa fa-user-circle"></i>&nbsp;Usuario</span><br></div>
+                                    <div class="stats">
+                                        <span><i class="fa fa-thumbs-up"></i>&nbsp;&nbsp;Calificación: </span>
+                                        <br><br>
+                                    </div>
+                                    <div class="fecha">05/05/2018</div>  
+                                </div>
+                         </div>
+
+              </div>
+           </div>
+        </section>
+    </div>    
+</div>
