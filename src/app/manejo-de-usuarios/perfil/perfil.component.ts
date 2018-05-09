@@ -41,6 +41,7 @@ export class PerfilComponent implements OnInit {
   nombreUsuario: string;
   email: string;
   idUsuario: string;
+  mensaje: string;
 
   cantidadVideos: number;
 
@@ -52,11 +53,13 @@ export class PerfilComponent implements OnInit {
     this.authService.getAuth().subscribe(auth =>{
       if(auth){
         this.data.setLogin(true);
-        this.email= this.authService.getEmail();
 
         if(this.authService.getSocialPicture()!=null){
-          this.imagenPerfil= this.authService.getSocialPicture();
+          this.imagenPerfil = this.authService.getPicture();
           this.nombreUsuario= auth.displayName;
+          if(this.authService.getEmail() == null){
+            this.email='Te conectaste por Facebook, Google o Twitter :D';
+          }
         }
         else{
           this.imagenPerfil = this.authService.getPicture();
@@ -69,6 +72,8 @@ export class PerfilComponent implements OnInit {
 
     this.coleccionDeVideos = this.afs.collection('Videos', ref => {return ref.where('codigoUsuario','==', this.idUsuario)});
     this.videos = this.coleccionDeVideos.valueChanges();
+    //Nombre categoria de retos
+    // this.coleccionDeRetos = this.afs.collection('Retos', ref => {return ref.where('codigoReto', '==')});
     this.login = this.data.getLogin();
   }
 
@@ -76,8 +81,7 @@ export class PerfilComponent implements OnInit {
     this.router.navigateByUrl("/watch?" + codigoVideo + "=")
   }
 
-  conteoVideos(){
-    
+  obtenerRetos(){
   }
 
-}
+  }

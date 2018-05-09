@@ -28,9 +28,9 @@ export class NavbarComponent implements OnInit {
         this.userID = auth.uid;
 
         if(this.authService.getSocialPicture()!=null){
-        this.nombreUsuario =auth.displayName;
-        this.fotoUsuario = this.authService.getSocialPicture();
-      }
+          this.nombreUsuario =auth.displayName;
+          this.fotoUsuario = this.authService.getSocialPicture();
+        }
         else{
           this.nombreUsuario =this.authService.getEmail();
           this.fotoUsuario = this.authService.getPicture();
