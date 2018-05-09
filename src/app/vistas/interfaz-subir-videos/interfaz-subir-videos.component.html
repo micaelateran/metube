@@ -18,10 +18,13 @@
                <div class="form-group">
                   <b><label for="email">Sube tu video:</label></b>
                   <file-upload></file-upload>
+                  <br>
                   <b><label for="email">Sube tu miniatura:</label></b>
-                  <file-upload></file-upload>
                </div>
-               <br>
+               <div style="text-align: center">
+                    <app-upload></app-upload>
+               </div>
+               <br><br>
                <input type="submit" (click)="subirVideo()" value="SUBIR" class="btn btn-primary btn-block btn-lg">
             </div>
          </div>
