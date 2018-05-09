@@ -28,7 +28,8 @@ dropZone
 <div *ngIf="snapshot | async as snap">
    {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }} 
    <div *ngIf="downloadURL | async as url">
-      <h3>¡Se subió correctamente!</h3>
+      <h3>¡Se subió correctamente!{{enviarLink()}}</h3>
+      <input type= "text" id="link" value={{url}} hidden>
    </div>
    <button (click)="task.pause()" class="button is-warning" [disabled]="!isActive(snap)">Pausar</button>
    <button (click)="task.cancel()" class="button is-danger" [disabled]="!isActive(snap)">Cancelar</button>

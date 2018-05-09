@@ -43,9 +43,16 @@ export class ComentariosComponent implements OnInit {
   }
 
   agregarComentario(){
-    this.fecha = new Date();
-    let texto = (<HTMLInputElement>document.getElementById("texto")).value;
-    this.database.agregarComentario(generateId(20),this.data.getUserID(),this.idVideo, this.fecha, texto);
+    if(this.data.getLinkMiniatura() !== null && this.data.getLinkVideo() !== null){
+      this.authService.getAuth().subscribe(auth =>{
+        if(auth){
+          this.fecha = new Date();
+          let texto = (<HTMLInputElement>document.getElementById("texto")).value;
+          this.database.agregarComentario(generateId(20),auth.email,this.idVideo, this.fecha, texto);
+        }
+      });
+    }
+    
   }
 
 }

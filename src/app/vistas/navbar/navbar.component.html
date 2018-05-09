@@ -20,7 +20,7 @@
         <a class="nav-link"  routerLink="/register">Registrarse</a>
      </li>
      <li class="nav-item" *ngIf="isLogin">
-        <a class="nav-link" routerLink="/profile">{{nombreUsuario}}</a>
+        <a class="nav-link" (click)="verPerfil()">{{nombreUsuario}}</a>
      </li>
      <li class="nav-item" *ngIf="isLogin">
         <img src="{{fotoUsuario}}" alt = "pic">

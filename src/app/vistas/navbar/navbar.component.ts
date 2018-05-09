@@ -15,14 +15,17 @@ export class NavbarComponent implements OnInit {
   public emailUsuario: string;
   public fotoUsuario: string;
 
+  userID: string;
+
   constructor(private data: DataService, public authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.authService.getAuth().subscribe(auth =>{
       if(auth){
         this.isLogin=true;
-        this.data.setUserID(this.authService.getEmail());
         this.data.setLogin(true);
+
+        this.userID = auth.uid;
 
         if(this.authService.getSocialPicture()!=null){
         this.nombreUsuario =auth.displayName;
@@ -31,14 +34,10 @@ export class NavbarComponent implements OnInit {
         else{
           this.nombreUsuario =this.authService.getEmail();
           this.fotoUsuario = this.authService.getPicture();
-          console.log(this.authService.getPicture());
-          
         }
-
      }
       else{
         this.isLogin=false;
-        this.data.setUserID("");
       }
     });
   }
@@ -46,8 +45,11 @@ export class NavbarComponent implements OnInit {
   onClickLogout(){
     this.authService.logout()
     this.data.setLogin(false);
-    this.data.setUserID("");
     this.router.navigateByUrl('/');
+  }
+
+  verPerfil(){
+    this.router.navigateByUrl('/profile?' + this.userID);
   }
 
 }

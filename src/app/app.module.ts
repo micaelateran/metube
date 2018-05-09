@@ -20,7 +20,7 @@ import { ReproductorComponent } from './manejo-de-videos/reproductor/reproductor
 import { NavbarComponent } from './vistas/navbar/navbar.component';
 import { InterfazRetosComponent } from './vistas/interfaz-retos/interfaz-retos.component';
 import { DropZoneDirective } from './directivas/drop-zone.directive';
-import { FileUploadComponent } from './manejo-de-videos/file-upload/file-upload.component';
+
 import { FileSizePipe } from './pipes/file-size.pipe';
 import { LoginComponent } from './manejo-de-usuarios/login/login.component';
 import { RegisterComponent } from './manejo-de-usuarios/register/register.component';
@@ -38,6 +38,7 @@ import { ComentariosComponent } from './vistas/comentarios/comentarios.component
 import { ListaVideosComponent } from './vistas/lista-videos/lista-videos.component';
 import { InterfazSubirVideosComponent } from './vistas/interfaz-subir-videos/interfaz-subir-videos.component';
 import { InterfazSubirRetosComponent } from './vistas/interfaz-subir-retos/interfaz-subir-retos.component';
+import { FileUploadComponent } from './manejo-de-archivos/file-upload/file-upload.component';
 
 @NgModule({
   declarations: [

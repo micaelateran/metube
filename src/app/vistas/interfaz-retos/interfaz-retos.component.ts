@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 
 interface Reto{
   codigoReto: string;
+  codigoUsuario: string;
   descripcion: string;
   nombre: string;
   urlMiniatura: string;

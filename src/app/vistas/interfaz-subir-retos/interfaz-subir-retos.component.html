@@ -8,18 +8,22 @@
            <div class="card-body">
               <div class="form-group">
                  <label for="text">Nombre del reto:</label>
-                 <input type="text" class="form-control">
+                 <input id="nombre_reto_input" type="text" class="form-control">
               </div>
               <div class="form-group">
                  <label for="text">ID: </label>
                  <input placeholder={{idReto}} type="text" class="form-control" disabled>
               </div>
               <div class="form-group">
+                  <label for="text">Descripción:</label>
+                  <input id="descripcion_input" type="text" class="form-control">
+               </div>
+              <div class="form-group">
                  <b><label for="email">Sube tu miniatura:</label></b>
                  <file-upload></file-upload>
               </div>
               <br>
-              <input type="submit" value="SUBIR" class="btn btn-primary btn-block btn-lg">
+              <input type="submit" value="SUBIR" class="btn btn-primary btn-block btn-lg" (click)="subirReto()">
            </div>
         </div>
      </div>

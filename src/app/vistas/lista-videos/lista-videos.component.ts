@@ -15,6 +15,7 @@ interface Video{
 
 interface Reto{
   codigoReto: string;
+  codigoUsuario: string;
   descripcion: string;
   nombre: string;
   urlMiniatura: string;

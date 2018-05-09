@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
     .then((res)=> {
      console.log("USUARIO LOGEADO SEXIMENTE");
       this.data.setLogin(true);
-      this.data.setUserID(this.authService.getEmail());
       this.router.navigateByUrl('/');
     }).catch((err) => {
       console.log("DUCHAS PAPI") 

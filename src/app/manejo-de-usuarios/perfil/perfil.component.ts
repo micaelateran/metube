@@ -4,6 +4,7 @@ import { AuthService } from '../../servicios/auth.service';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import separarURL from '../../funciones/separador';
 
 interface Video{
   calificacion: number;
@@ -46,14 +47,13 @@ export class PerfilComponent implements OnInit {
   constructor(private router: Router, private afs: AngularFirestore, private data: DataService, public authService: AuthService) { }
 
   ngOnInit() {
-    this.login = this.data.getLogin();
+    this.idUsuario = separarURL(this.router.url);
+
     this.authService.getAuth().subscribe(auth =>{
       if(auth){
         this.data.setLogin(true);
-
         this.email= this.authService.getEmail();
-        this.idUsuario= auth.uid;
-        
+
         if(this.authService.getSocialPicture()!=null){
           this.imagenPerfil= this.authService.getSocialPicture();
           this.nombreUsuario= auth.displayName;
@@ -62,17 +62,14 @@ export class PerfilComponent implements OnInit {
           this.imagenPerfil = this.authService.getPicture();
           this.nombreUsuario= this.authService.getEmail();
         }
-     }
-      else{
-        this.data.setLogin(false);
+      } else{
+      this.data.setLogin(false);
       }
     });
 
-    this.coleccionDeVideos = this.afs.collection('Videos', ref => {return ref.where('codigoUsuario','==', this.data.getUserID())});
-    this.coleccionDeRetos = this.afs.collection('Retos', ref => {return ref.where('codigoReto','==', this.data.getRetoID())})
-
+    this.coleccionDeVideos = this.afs.collection('Videos', ref => {return ref.where('codigoUsuario','==', this.idUsuario)});
     this.videos = this.coleccionDeVideos.valueChanges();
-    this.retos = this.coleccionDeRetos.valueChanges();
+    this.login = this.data.getLogin();
   }
 
   verVideo(codigoVideo: string){

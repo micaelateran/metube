@@ -22,31 +22,35 @@ export class FileUploadComponent {
 
   isHovering: boolean;
 
-  constructor(private data: DataService, private storage: AngularFireStorage) { }
+  file;
+
+  listo: boolean;
+
+  constructor(private data: DataService, private storage: AngularFireStorage) {  }
   
   toggleHover(event: boolean) {
     this.isHovering = event;
   }
 
   startUpload(event: FileList) {
-    const file = event.item(0)
+    this.file = event.item(0)
 
-    if (file.type.split('/')[0] !== 'video' && file.type.split('/')[0] !== 'image') { 
+    if (this.file.type.split('/')[0] !== 'video' && this.file.type.split('/')[0] !== 'image') { 
       console.error('Tipo de archivo no admitido :( ')
       return;
     }
 
-    const path = `test/${new Date().getTime()}_${file.name}`; //Dirección de donde se almacenará
+    const path = `test/${new Date().getTime()}_${this.file.name}`; //Dirección de donde se almacenará
 
-    const customMetadata = { app: 'My AngularFire-powered PWA!' };
+    const customMetadata = { app: 'Metube-powered PWA!' };
 
-    this.task = this.storage.upload(path, file, { customMetadata })
+    this.task = this.storage.upload(path, this.file, { customMetadata })
 
     this.percentage = this.task.percentageChanges();
     this.snapshot   = this.task.snapshotChanges()
 
     this.downloadURL = this.task.downloadURL(); 
-    
+    this.listo = true;
   }
 
   iniciar(){
@@ -55,6 +59,26 @@ export class FileUploadComponent {
 
   isActive(snapshot) {
     return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes
+  }
+
+  enviarLink(){
+    if(this.listo){
+      let link = (<HTMLInputElement>document.getElementById("link")).value;
+
+      if(link !== null){
+        console.log("Tipo: " + this.file.type.split('/')[0] );
+
+        if(this.file.type.split('/')[0] === 'image'){
+          this.data.setLinkMiniatura(link);
+          console.log("Dentro de image");
+        } 
+        if(this.file.type.split('/')[0] === 'video'){
+          this.data.setLinkVideo(link);
+          console.log("Dentro de video");
+        }
+      }
+      this.listo = false;
+    }
   }
 
 }
