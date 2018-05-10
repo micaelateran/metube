@@ -1,25 +1,37 @@
 <div *ngFor="let reto of retosObs | async" class="container">
-      <section class="head">
-         <div class="container">
-            <h2 class="text-center">
-               <span>{{reto.nombre}}</span>
-               <div class="container" align="middle">
-                  <div class="panel">
-                     <div class="panel-body"><br><br>{{reto.descripcion}}<br><span><i class="fa fa-trophy"></i></span></div>
-                     <br><br>
-                  </div>
-               </div>
-            </h2>
-            <div align="middle">
-               <br>
-               <h4>¿Quieres ser parte de este reto?</h4>
-               <br>
-               <button class="btn" [(ngModel)]="reto.codigoReto" name="botonSubirVideo" ngDefaultControl (click)="subirVideo(reto.codigoReto)" role="button">SUBE TU VIDEO</button>
-               <br><br>
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-2">
+               <img class="anuncio1" id="imagen3" src="https://media.giphy.com/media/xT0Gqq8MuvPdAxCarK/giphy.gif">
             </div>
-            <br>
+            <div class="col-sm-7 contenedor">
+               <section class="head">
+                  <div class="container">
+                     <h2 class="text-center">
+                        <span>&nbsp;{{reto.nombre}}</span>
+                        <div class="container" align="middle">
+                           <div class="panel">
+                              <div class="panel-body"><br><br>{{reto.descripcion}}<br><span><i class="fa fa-trophy"></i></span></div>
+                              <br><br>
+                           </div>
+                        </div>
+                     </h2>
+                     <div align="middle">
+                        <br>
+                        <h4>¿Quieres ser parte de este reto?</h4>
+                        <br>
+                        <button class="btn" [(ngModel)]="reto.codigoReto" name="botonSubirVideo" ngDefaultControl (click)="subirVideo(reto.codigoReto)" role="button">SUBE TU VIDEO</button>
+                        <br><br>
+                     </div>
+                     <br>
+                  </div>
+               </section>
+            </div>
+            <div class="col-sm-2">
+               <img class="anuncio2" id="imagen3" src="https://media.giphy.com/media/Noxp9AyMyKj28/giphy.gif">
+            </div>
          </div>
-      </section>
+      </div>
       <div class="container">
          <br>
          <div class="videos" *ngFor="let video of videosObs | async">
@@ -33,7 +45,7 @@
                         </button>  
                         <div class="media-body">
                            <br>
-                           <div class="nombre"><span><i class="fa fa-user-circle" [(ngModel)]="video.codigoUsuario" name="nombreDeUsuario" ngDefaultControl></i>&nbsp;Usuario: {{getNombreUsuario(video.codigoUsuario)}}</span><br></div>
+                           <div class="nombre"><span><i class="fa fa-user-circle"></i>&nbsp;Usuario: {{video.codigoUsuario}}</span><br></div>
                            <div class="stats">
                               <span><i class="fa fa-thumbs-up"></i>&nbsp;&nbsp;Calificación: {{video.calificacion}}</span>
                               <br><br>
