@@ -1,17 +1,53 @@
-<div class="container">
-  <h1 class="etiqueta" align="middle">Dale una calificación: </h1>
+
+<div class="container1" id="container1">
+
+    <h1 class="etiqueta" id="etiqueta" align="LEFT">CALIFICACION DEL VIDEO</h1>
     <form>
-        <p class="clasificacion" align="middle">
-          <input id="radio1" type="radio" name="estrellas" value="5"  >
-          <label for="radio1">★</label>
-          <input id="radio2" type="radio" name="estrellas" value="4">
-          <label for="radio2">★</label>
-          <input id="radio3" type="radio" name="estrellas" value="3">
-          <label for="radio3">★</label>
-          <input id="radio4" type="radio" name="estrellas" value="2">
-          <label for="radio4">★</label>
-          <input id="radio5" type="radio" name="estrellas" value="1">
-          <label for="radio5">★</label>
-        </p>
+
+        <ul *ngFor="let video of videos | async">
+            <li>
+                <strong>Puntaje: {{video.data.calificacion}}</strong>
+                <br>
+                <strong>Votos: {{video.data.cantidadVotos}}</strong>
+
+          
+            </li>
+          </ul>
+
       </form>
-</div>
+  </div>
+
+
+<div class="container" id ="container">
+    <h1 class="etiqueta" id ="id1" align="middle">Dale una calificación: </h1>
+      <form>
+          <p class="clasificacion" align="middle">
+            <input id="radio1" type="radio" name="estrellas" value="5"  >
+            <label for="radio1">★</label>
+            <input id="radio2" type="radio" name="estrellas" value="4">
+            <label for="radio2">★</label>
+            <input id="radio3" type="radio" name="estrellas" value="3">
+            <label for="radio3">★</label>
+            <input id="radio4" type="radio" name="estrellas" value="2">
+            <label for="radio4">★</label>
+            <input id="radio5" type="radio" name="estrellas" value="1">
+            <label for="radio5">★</label>
+          </p>
+
+          <p class="submitButton" align="middle">
+
+              <a (click)="enviarCalificacion()" class="myButton">Enviar Calificacion</a>
+             
+           </p>
+        </form>
+
+  </div>
+
+
+<ul *ngFor="let video of videos | async">
+  <li>
+      <input type="text" id="calificacion" value={{video.data.calificacion}} hidden >
+      <input type="text" id="cantidadVotos" value={{video.data.cantidadVotos}} hidden >
+
+  </li>
+</ul>
