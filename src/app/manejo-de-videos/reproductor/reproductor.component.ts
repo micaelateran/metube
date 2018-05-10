@@ -11,8 +11,9 @@ import { Video } from '../../modelos/Video';
   templateUrl: './reproductor.component.html',
   styleUrls: ['./reproductor.component.scss']
 })
-export class ReproductorComponent implements OnInit {
 
+export class ReproductorComponent implements OnInit {
+  
   url: string;
   id: string;
 
