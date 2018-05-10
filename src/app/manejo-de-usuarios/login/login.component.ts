@@ -29,26 +29,5 @@ export class LoginComponent implements OnInit {
       console.log("DUCHAS PAPI") 
     });
   }
-
-  onClickGoogleLogin() {
-    this.authService.loginGoogle()
-     .then((res) => {
-         //
-     }).catch( err => console.log(err.message));
-   }
- 
-   onClickFacebookLogin() {
-     this.authService.loginFacebook()
-       .then((res) => {
-           //
-       }).catch( err => console.log(err.message));
-   }
- 
-   onClickTwitterLogin() {
-     this.authService.loginTwitter()
-       .then((res) => {
-         //
-       }).catch (err => console.log(err.message));
-   }
-
+  
 }

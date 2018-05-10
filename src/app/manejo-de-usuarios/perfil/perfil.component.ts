@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import separarURL from '../../funciones/separador';
 import { Video } from '../../modelos/Video';
-import { Reto } from '../../modelos/Reto';
+import { Reto } from '../../modelos/reto';
 import { Usuario } from '../../modelos/Usuario';
 
 @Component({
@@ -28,14 +28,21 @@ export class PerfilComponent implements OnInit {
   videos: Video[];
   usuarios: Usuario[];
 
+  email: string;
+  nombreUsuario: string;
+  urlPerfil: string;
+
   cantidadVideos: number;
 
   login: boolean;
 
-  constructor(private router: Router, private afs: AngularFirestore, private data: DataService, public authService: AuthService) { }
+  constructor(private router: Router, private afs: AngularFirestore, private data: DataService, private authService: AuthService) { }
 
   ngOnInit() {
+    let id = separarURL(this.router.url);
+
     this.cantidadVideos = 0;
+    this.login = false;
 
     this.authService.getAuth().subscribe(auth =>{
       if(auth){
@@ -47,14 +54,14 @@ export class PerfilComponent implements OnInit {
 
         this.usuariosObs.subscribe(usuarios => {
           this.usuarios = usuarios;
+          this.email = this.usuarios[0].email;
+          this.nombreUsuario = this.usuarios[0].nombreUsuario;
+          this.urlPerfil = this.usuarios[0].urlPerfil;
         })
-        
-      } else{
-        this.login = false;
       }
     });
 
-    this.coleccionDeVideos = this.afs.collection('Videos', ref => {return ref.where('codigoUsuario','==', this.usuarios[0].codigoUsuario)});
+    this.coleccionDeVideos = this.afs.collection('Videos', ref => {return ref.where('codigoUsuario','==', id)});
     this.videosObs = this.coleccionDeVideos.valueChanges();
 
     this.videosObs.subscribe(videos => {

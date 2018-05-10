@@ -7,6 +7,6 @@ export interface Usuario{
     nombre: string;
     nombreUsuario: string;
     password: string;
-    urlMiniatura: string;
+    urlPerfil: string;
 }
   

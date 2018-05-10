@@ -12,18 +12,6 @@ export class AuthService {
   public afAuth: AngularFireAuth
   ) { }
 
-  loginFacebook() {
-  return this.afAuth.auth.signInWithPopup( new firebase.auth.FacebookAuthProvider());
-  }
-
-  loginTwitter () {
-    return this.afAuth.auth.signInWithPopup( new firebase.auth.TwitterAuthProvider());
-  }
-
-  loginGoogle() {
-  return this.afAuth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider());
-  }
-
   registerUser(email: string, pass: string) {
     return new Promise((resolve, reject) => {
      this.afAuth.auth.createUserWithEmailAndPassword(email, pass)

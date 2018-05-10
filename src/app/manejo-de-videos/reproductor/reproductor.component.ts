@@ -4,15 +4,7 @@ import { Router } from '@angular/router';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import separarURL from '../../funciones/separador';
-
-interface Video{
-  calificacion: number;
-  codigoReto: string;
-  codigoUsuario: string;
-  codigoVideo: string;
-  miniaturaUrl: string;
-  videoUrl: string;
-}
+import { Video } from '../../modelos/Video';
 
 @Component({
   selector: 'app-reproductor',

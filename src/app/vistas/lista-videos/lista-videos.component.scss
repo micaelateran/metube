@@ -43,7 +43,7 @@ h2{
     width:100%; color:#fff; 
     margin-bottom:40px; 
     font-size: 14px; 
-    position:relartive; z-index:3; 
+    position:relative; z-index:3; 
     margin-top:30px
 }
 
@@ -76,7 +76,7 @@ h2 a{
     border-left:100px; 
     border-right: 100px;
     height:200px;
-    width: 750px;
+    width: 820px;
 }
 
 .media .nombre{
@@ -120,4 +120,22 @@ h2 a{
     border: rgba(9, 2, 100, 0.863);
     border-style: dotted;
     font-size: 18px;
+}
+
+.anuncio1{
+    width: 230px;
+    height: 500px;
+}
+
+.anuncio2{
+    width: 200px;
+    height: 500px;
+}
+
+.col-sm-2{
+    margin-top: 40px;
+}
+
+.contenedor{
+    margin-left: 30px;
 }

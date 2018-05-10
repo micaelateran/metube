@@ -1,14 +1,11 @@
 
 #container1{
-  margin-left: 500px;
-  margin-bottom: 100px;
+  margin: auto 0;
 }
 
-
 #container {
-  height: 210px;
-  width: 210px;
-  background: black;
+	background: rgba(63, 56, 56, 0.356);
+	border: black;
 }
 
 input[type="radio"] {
@@ -19,18 +16,21 @@ label {
   font: normal 36.5px courier !important;
   color: grey;
 }
+
 strong{
-  font: normal 36.5px courier !important;
-  color: grey;
+	color: rgb(189, 183, 183);
+	text-align: center;
+	font-size: 20px;
 }
+
 span {
-  font: normal 35px courier !important;
-  color: gray;
-  
+	color: rgb(189, 183, 183);
+	text-align: center;
+	font-size: 20px;
 }
 
 #etiqueta{
-  font: bold 45px courier !important;
+ 	font-size: 25px;
 
 }
 
@@ -62,7 +62,6 @@ input[type="radio"]:checked ~ label {
   color: orange;
 }
 
-
 .myButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
@@ -88,7 +87,7 @@ input[type="radio"]:checked ~ label {
 	padding:6px 24px;
 	text-decoration:none;
   text-shadow:0px 1px 0px #810e05;
-  margin-bottom: 50px
+  //margin-bottom: 50px
 }
 .myButton:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537));
@@ -104,6 +103,19 @@ input[type="radio"]:checked ~ label {
 	position:relative;
   top:1px;
 }
+
+.anuncio1{
+	width: 240px;
+	height: 350px;
+}
+
+.anuncio2{
+	width: 240px;
+	height: 350px;
+}
+
+
+
 
 
 
