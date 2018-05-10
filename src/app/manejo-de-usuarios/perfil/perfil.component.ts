@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import separarURL from '../../funciones/separador';
 import { Video } from '../../modelos/Video';
 import { Reto } from '../../modelos/reto';
+import { Usuario } from '../../modelos/Usuario';
 
 @Component({
   selector: 'app-perfil',
@@ -17,49 +18,43 @@ export class PerfilComponent implements OnInit {
 
   coleccionDeVideos: AngularFirestoreCollection<Video>;
   coleccionDeRetos: AngularFirestoreCollection<Reto>;
+  coleccionDeUsuarios: AngularFirestoreCollection<Usuario>;
 
   videosObs: Observable<Video[]>;
   retosObs: Observable<Reto[]>;
+  usuariosObs: Observable<Usuario[]>;
 
   retos: Reto[];
   videos: Video[];
-
-  login: boolean;
-
-  imagenPerfil: string;
-  nombreUsuario: string;
-  email: string;
-  idUsuario: string;
-  mensaje: string;
+  usuarios: Usuario[];
 
   cantidadVideos: number;
+
+  login: boolean;
 
   constructor(private router: Router, private afs: AngularFirestore, private data: DataService, public authService: AuthService) { }
 
   ngOnInit() {
-    this.idUsuario = separarURL(this.router.url);
+    this.cantidadVideos = 0;
 
     this.authService.getAuth().subscribe(auth =>{
       if(auth){
-        this.data.setLogin(true);
+        this.login = true;
 
-        if(this.authService.getSocialPicture()!=null){
-          this.imagenPerfil = this.authService.getPicture();
-          this.nombreUsuario= auth.displayName;
-          if(this.authService.getEmail() == null){
-            this.email='Te conectaste por Facebook, Google o Twitter.';
-          }
-        }
-        else{
-          this.imagenPerfil = this.authService.getPicture();
-          this.nombreUsuario= this.authService.getEmail();
-        }
+        this.coleccionDeUsuarios = this.afs.collection('Usuarios', ref => {return ref.where('email','==', this.authService.getEmail())});
+
+        this.usuariosObs = this.coleccionDeUsuarios.valueChanges(); 
+
+        this.usuariosObs.subscribe(usuarios => {
+          this.usuarios = usuarios;
+        })
+        
       } else{
-      this.data.setLogin(false);
+        this.login = false;
       }
     });
 
-    this.coleccionDeVideos = this.afs.collection('Videos', ref => {return ref.where('codigoUsuario','==', this.idUsuario)});
+    this.coleccionDeVideos = this.afs.collection('Videos', ref => {return ref.where('codigoUsuario','==', this.usuarios[0].codigoUsuario)});
     this.videosObs = this.coleccionDeVideos.valueChanges();
 
     this.videosObs.subscribe(videos => {
@@ -73,8 +68,6 @@ export class PerfilComponent implements OnInit {
     this.retosObs.subscribe(retos => {
       this.retos = retos;
     })
-
-    this.login = this.data.getLogin();
   }
 
   verVideo(codigoVideo: string){

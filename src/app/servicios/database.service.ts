@@ -18,4 +18,8 @@ export class DatabaseService {
     this.database.collection("Retos").add({'codigoReto': codigoReto, 'codigoUsuario': codigoUsuario, 'descripcion': descripcion, 'nombre': nombre, 'urlMiniatura': urlMiniatura})
   }
 
+  agregarUsuario(apellidoMaterno: string, apellidoPaterno: string, codigoUsuario: string, email: string, fechaNacimiento: Date, nombre: string, nombreUsuario: string, password: string, urlPerfil: string){
+    this.database.collection("Usuarios").add({'apellidoMaterno': apellidoMaterno, 'apellidoPaterno': apellidoPaterno, 'codigoUsuario': codigoUsuario, 'email': email, 'fechaNacimiento': fechaNacimiento, "nombre": nombre, 'nombreUsuario': nombreUsuario,'password': password, 'urlPerfil': urlPerfil});
+  }
+
 }

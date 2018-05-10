@@ -7,7 +7,10 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
   items: Observable<any[]>;
+  
   constructor(){
   }
+
 }

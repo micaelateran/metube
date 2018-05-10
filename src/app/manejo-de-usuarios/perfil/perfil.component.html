@@ -1,19 +1,19 @@
 <div class="container" *ngIf="login">
     <br>
     <br>
-    <h1 class="etiqueta" align=MIDDLE>BIENVENIDO A TU PERFIL </h1>
+    <h1 class="etiqueta" align=MIDDLE>BIENVENIDO A TU PERFIL</h1>
     <br>
     <div class="perfil" align=MIDDLE>
-        <img src={{imagenPerfil}} width="400px" height="400px" class="rounded-circle">
+        <img src={{usuarios[0].urlPerfil}} width="400px" height="400px" class="rounded-circle">
         <div class="rank-label-container">
-                <span class="label label-default rank-label">{{nombreUsuario}}</span>
+                <span class="label label-default rank-label">{{usuarios[0].nombreUsuario}}</span>
          </div>
     </div>
     <div class="form-group" align=middle>
         <br>
        <label for="email" style= "color:gray">Correo Registrado:</label>
        <div class="col-sm-10"></div>
-       <p class="email"style= "color:white">{{email}}</p>
+       <p class="email"style= "color:white">{{usuarios[0].email}}</p>
     </div>
     <div class="form-group" align=middle>
        <label for="email"style= "color:gray">Número videos subidos:</label>

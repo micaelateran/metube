@@ -19,22 +19,18 @@ export class DataService {
     }
 
     setLinkVideo(link_video){
-        console.log("Set link video: " + link_video);
         this.linkVideo = {link: link_video};
     }
 
     getLinkVideo(){
-        console.log("Get link video: " + this.linkVideo.link);
         return this.linkVideo.link;
     }
 
     setLinkMiniatura(link_miniatura){
-        console.log("Set link miniatura: " + link_miniatura);
         this.linkMiniatura = {link: link_miniatura};
     }
 
     getLinkMiniatura(){
-        console.log("Get link miniatura: " + this.linkMiniatura.link);
         return this.linkMiniatura.link;
     }
 
@@ -61,7 +57,5 @@ export class DataService {
     getRetoID(){
         return this.retoID.id;
     }
-
-
     
 }
