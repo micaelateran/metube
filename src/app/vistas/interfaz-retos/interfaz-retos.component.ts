@@ -4,7 +4,7 @@ import { DataService } from '../../servicios/data.service';
 import { DatabaseService } from '../../servicios/database.service';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { Reto } from '../../modelos/reto';
+import { Reto } from '../../modelos/Reto';
 
 @Component({
   selector: 'app-interfaz-retos',
