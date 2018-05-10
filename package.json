@@ -5,7 +5,7 @@
   "scripts": {
     "web": "npm start",
     "ng": "ng",
-    "build": "ng build ",
+    "build": "ng build --proxy-config proxy.cong.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -64,15 +64,5 @@
   "engines": {
     "node": "9.11.1",
     "npm": "5.6.0"
-  },
-    "/v0/*": {
-      "target": "http://metube1.herokuapp.com/",
-      "secure": false,
-      "changeOrigin": true
-    
   }
-
-  
-  
 }
-
