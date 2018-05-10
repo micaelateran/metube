@@ -7,6 +7,7 @@ import { DatabaseService } from '../../servicios/database.service';
 import generateId from '../../funciones/idGenerator';
 import separarURL from '../../funciones/separador';
 import { AuthService } from '../../servicios/auth.service';
+import { Usuario } from '../../modelos/Usuario';
 
 interface Reto{
   codigoReto: string;
@@ -27,7 +28,12 @@ export class InterfazSubirVideosComponent implements OnInit {
   idVideo: string;
 
   coleccionDeRetos: AngularFirestoreCollection<Reto>;
-  retos: Observable<Reto[]>;
+  coleccionDeUsuarios: AngularFirestoreCollection<Usuario>;
+
+  retosObs: Observable<Reto[]>;
+  usuariosObs: Observable<Usuario[]>;
+
+  usuarios: Usuario[];
 
   constructor(private router:Router, private data: DataService, public database:DatabaseService, private afs: AngularFirestore, public authService: AuthService) {
     this.idVideo = generateId(20);
@@ -36,14 +42,13 @@ export class InterfazSubirVideosComponent implements OnInit {
 
   ngOnInit() {
     this.coleccionDeRetos = this.afs.collection('Retos', ref => {return ref.where('codigoReto','==', this.idReto)});
-    this.retos = this.coleccionDeRetos.valueChanges();
+    this.retosObs = this.coleccionDeRetos.valueChanges();
   }
 
   subirVideo(){
     if(this.data.getLinkMiniatura() !== null && this.data.getLinkVideo() !== null){
       this.authService.getAuth().subscribe(auth =>{
         if(auth){
-
           let linkVideo = "/";
           let concatenar = false;
 
@@ -58,8 +63,16 @@ export class InterfazSubirVideosComponent implements OnInit {
           
           let fecha = new Date();
 
-          this.database.agregarVideo(this.idReto, auth.uid, generateId(20), fecha, this.data.getLinkMiniatura(), linkVideo);
-          this.router.navigateByUrl('/')
+          this.coleccionDeUsuarios = this.afs.collection('Usuarios', ref => {return ref.where('email','==', this.authService.getEmail())});
+
+          this.usuariosObs = this.coleccionDeUsuarios.valueChanges(); 
+
+          this.usuariosObs.subscribe(usuarios => {
+            this.usuarios = usuarios;
+            let id = this.usuarios[0].codigoUsuario;
+            this.database.agregarVideo(this.idReto, id, generateId(20), fecha, this.data.getLinkMiniatura(), linkVideo);
+            this.router.navigateByUrl('/');
+          })
         }
       });
     }
