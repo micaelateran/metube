@@ -5,12 +5,12 @@
   "scripts": {
     "web": "npm start",
     "ng": "ng",
-    "build": "ng build --proxy-config proxy.conf.json",
+    "build": "ng build --proxy-config ",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot --prod --proxy-config proxy.conf.json",
-    "start": "node server.js"
+    "postinstall": "ng build --aot --prod ",
+    "start": "node server.js --proxy-config   proxy.conf.json"
   },
   "private": true,
   "dependencies": {
