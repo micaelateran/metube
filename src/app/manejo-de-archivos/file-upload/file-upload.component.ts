@@ -62,15 +62,11 @@ export class FileUploadComponent {
     let link = (<HTMLInputElement>document.getElementById("link")).value;
 
     if(link !== null){
-      console.log("Tipo: " + this.file.type.split('/')[0] );
-
       if(this.file.type.split('/')[0] === 'image'){
         this.data.setLinkMiniatura(link);
-        console.log("Dentro de image");
       } 
       if(this.file.type.split('/')[0] === 'video'){
         this.data.setLinkVideo(link);
-        console.log("Dentro de video");
       }
     }
   }

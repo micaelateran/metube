@@ -1,24 +1,24 @@
 <div class="container" *ngIf="login">
     <br>
     <br>
-    <h1 class="etiqueta" align=MIDDLE>BIENVENIDO A TU PERFIL </h1>
+    <h1 class="etiqueta" align=MIDDLE>BIENVENIDO A TU PERFIL</h1>
     <br>
     <div class="perfil" align=MIDDLE>
-        <img src={{imagenPerfil}} width="400px" height="400px" class="rounded-circle">
+        <img src={{usuarios[0].urlPerfil}} width="400px" height="400px" class="rounded-circle">
         <div class="rank-label-container">
-                <span class="label label-default rank-label">{{nombreUsuario}}</span>
+                <span class="label label-default rank-label">{{usuarios[0].nombreUsuario}}</span>
          </div>
     </div>
     <div class="form-group" align=middle>
         <br>
        <label for="email" style= "color:gray">Correo Registrado:</label>
        <div class="col-sm-10"></div>
-       <p class="email"style= "color:white">{{email}}</p>
+       <p class="email"style= "color:white">{{usuarios[0].email}}</p>
     </div>
     <div class="form-group" align=middle>
        <label for="email"style= "color:gray">Número videos subidos:</label>
        <div class="col-sm-10"></div>
-       <p class="form-control-static"style= "color:white">{{idUsuario}}</p>
+       <p class="form-control-static"style= "color:white">{{cantidadVideos}}</p>
     </div>
     <div class="container">
        <p style= "Color:gray">Videos Subidos:</p>
@@ -31,9 +31,9 @@
                 <th style= "Color:gray">Opciones</th>                    
              </tr>
           </thead>
-          <tbody *ngFor="let video of videos | async">
+          <tbody *ngFor="let video of videosObs | async">
              <tr>
-                <td style= "Color:white">{{video.codigoReto}}</td>
+                <td style= "Color:white" [(ngModel)]="video.codigoReto" name="obtenerNombre" ngDefaultControl>{{getNombreReto(video.codigoReto)}}</td>
                 <td style= "Color:white; text-align: center">{{video.calificacion}}</td>
                 <td style= "Color:white"><button style= "Color:rgb(245, 245, 245) ; background-color:rgb(39, 173, 51)" type="button"  [(ngModel)]="video.codigoVideo" name="botonVideo" ngDefaultControl (click)="verVideo(video.codigoVideo)" class="btn">Mira el video</button></td>
                 <td style= "Color:white"><button style= "Color:rgb(245, 245, 245) ; background-color:brown" type="button" href="**Link del Video Aca**" class="btn">Eliminar video</button></td>

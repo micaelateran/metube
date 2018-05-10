@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../servicios/auth.service';
 import { Router } from '@angular/router';
 import { DataService } from '../../servicios/data.service';
+import { Usuario } from '../../modelos/Usuario';
+import { Observable } from 'rxjs/Observable';
+import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: 'app-navbar',
@@ -11,31 +14,29 @@ import { DataService } from '../../servicios/data.service';
 export class NavbarComponent implements OnInit {
 
   public isLogin: boolean;
-  public nombreUsuario: string;
-  public emailUsuario: string;
-  public fotoUsuario: string;
+  
+  coleccionDeUsuarios: AngularFirestoreCollection<Usuario>;
 
-  userID: string;
+  usuariosObs: Observable<Usuario[]>;
 
-  constructor(private data: DataService, public authService: AuthService, private router: Router) { }
+  usuarios: Usuario[];
+
+  constructor(private data: DataService, public authService: AuthService, private router: Router, private afs: AngularFirestore) { }
 
   ngOnInit() {
     this.authService.getAuth().subscribe(auth =>{
       if(auth){
-        this.isLogin=true;
+        this.isLogin = true;
         this.data.setLogin(true);
 
-        this.userID = auth.uid;
+        this.coleccionDeUsuarios = this.afs.collection('Usuarios', ref => {return ref.where('email','==', this.authService.getEmail())});
 
-        if(this.authService.getSocialPicture()!=null){
-          this.nombreUsuario =auth.displayName;
-          this.fotoUsuario = this.authService.getSocialPicture();
-        }
-        else{
-          this.nombreUsuario =this.authService.getEmail();
-          this.fotoUsuario = this.authService.getPicture();
-        }
-     }
+        this.usuariosObs = this.coleccionDeUsuarios.valueChanges(); 
+
+        this.usuariosObs.subscribe(usuarios => {
+          this.usuarios = usuarios;
+        })
+      }
       else{
         this.isLogin=false;
       }
@@ -49,7 +50,7 @@ export class NavbarComponent implements OnInit {
   }
 
   verPerfil(){
-    this.router.navigateByUrl('/profile?' + this.userID);
+    this.router.navigateByUrl('/profile?' + this.usuarios[0].codigoUsuario);
   }
 
 }

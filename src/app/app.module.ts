@@ -40,7 +40,7 @@ import { InterfazSubirVideosComponent } from './vistas/interfaz-subir-videos/int
 import { InterfazSubirRetosComponent } from './vistas/interfaz-subir-retos/interfaz-subir-retos.component';
 import { FileUploadComponent } from './manejo-de-archivos/file-upload/file-upload.component';
 import { UploadComponent } from './manejo-de-archivos/upload/upload.component';
-import { FlexLayoutModule } from '@angular/flex-layout'
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,7 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     ListaVideosComponent,
     InterfazSubirVideosComponent,
     InterfazSubirRetosComponent,
-    UploadComponent
+    UploadComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +78,7 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     AngularFireAuthModule,
     NgbModule.forRoot(),
     NgxPageScrollModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   providers: [AuthService,DataService,DatabaseService],
   bootstrap: [AppComponent]
