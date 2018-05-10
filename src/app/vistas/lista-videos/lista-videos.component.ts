@@ -4,7 +4,7 @@ import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/fires
 import { Observable } from 'rxjs/Observable';
 import { DataService } from '../../servicios/data.service';
 import { Video } from '../../modelos/Video';
-import { Reto } from '../../modelos/reto';
+import { Reto } from '../../modelos/Reto';
 import { Usuario } from '../../modelos/Usuario';
 import { AuthService } from '../../servicios/auth.service';
 
