@@ -1,6 +1,6 @@
 {
     "/v0/*": {
-      "target": "https://firebasestorage.googleapis.com",
+      "target": "http://metube1.herokuapp.com/",
       "secure": false,
       "changeOrigin": true
     }

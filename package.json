@@ -64,5 +64,15 @@
   "engines": {
     "node": "9.11.1",
     "npm": "5.6.0"
+  },
+    "/v0/*": {
+      "target": "http://metube1.herokuapp.com/",
+      "secure": false,
+      "changeOrigin": true
+    
   }
+
+  
+  
 }
+
