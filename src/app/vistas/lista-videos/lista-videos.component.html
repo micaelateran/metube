@@ -1,4 +1,4 @@
-<div *ngFor="let reto of retos | async" class="container">
+<div *ngFor="let reto of retosObs | async" class="container">
         <section class="head">
            <div class="container">
               <h2 class="text-center">
@@ -22,7 +22,7 @@
         </section>
         <div class="container">
            <br>
-           <div class="videos" *ngFor="let video of videos | async">
+           <div class="videos" *ngFor="let video of videosObs | async">
                  <div class="clearfix"></div>
                  <section>
                     <div class="container-fluid">

@@ -3,23 +3,8 @@ import { Router } from '@angular/router';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { DataService } from '../../servicios/data.service';
-
-interface Video{
-  calificacion: number;
-  codigoReto: string;
-  codigoUsuario: string;
-  codigoVideo: string;
-  miniaturaUrl: string;
-  videoUrl: string;
-}
-
-interface Reto{
-  codigoReto: string;
-  codigoUsuario: string;
-  descripcion: string;
-  nombre: string;
-  urlMiniatura: string;
-}
+import { Video } from '../../modelos/Video';
+import { Reto } from '../../modelos/reto';
 
 @Component({
   selector: 'app-lista-videos',
@@ -33,8 +18,9 @@ export class ListaVideosComponent implements OnInit {
   coleccionDeVideos: AngularFirestoreCollection<Video>;
   coleccionDeRetos: AngularFirestoreCollection<Reto>;
 
-  videos: Observable<Video[]>;
-  retos: Observable<Reto[]>;
+  videosObs: Observable<Video[]>;
+  retosObs: Observable<Reto[]>;
+
 
   constructor(private router:Router, private data: DataService, private afs: AngularFirestore) { }
 
@@ -42,8 +28,8 @@ export class ListaVideosComponent implements OnInit {
     this.coleccionDeVideos = this.afs.collection('Videos', ref => {return ref.where('codigoReto','==', this.data.getRetoID())});
     this.coleccionDeRetos = this.afs.collection('Retos', ref => {return ref.where('codigoReto','==', this.data.getRetoID())})
 
-    this.videos = this.coleccionDeVideos.valueChanges();
-    this.retos = this.coleccionDeRetos.valueChanges();
+    this.videosObs = this.coleccionDeVideos.valueChanges();
+    this.retosObs = this.coleccionDeRetos.valueChanges();
   }
 
   ver(codigoVideo: string): void{

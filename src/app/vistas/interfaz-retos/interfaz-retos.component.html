@@ -1,5 +1,5 @@
 <div style="text-align:center">
-  <div class="retos" *ngFor="let reto of retos | async">
+  <div class="retos" *ngFor="let reto of retosObs | async">
     <button [(ngModel)]="reto.codigoReto" name="botonReto" ngDefaultControl (click)="listar(reto.codigoReto)">{{reto.nombre}}<br/><input type=image  src={{reto.urlMiniatura}}
       width="400" height="350" title={{reto.nombre}}></button>
     <div class="divider"></div>

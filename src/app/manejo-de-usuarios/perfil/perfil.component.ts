@@ -5,22 +5,8 @@ import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/fires
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import separarURL from '../../funciones/separador';
-
-interface Video{
-  calificacion: number;
-  codigoReto: string;
-  codigoUsuario: string;
-  codigoVideo: string;
-  miniaturaUrl: string;
-  videoUrl: string;
-}
-
-interface Reto{
-  codigoReto: string;
-  descripcion: string;
-  nombre: string;
-  urlMiniatura: string;
-}
+import { Video } from '../../modelos/Video';
+import { Reto } from '../../modelos/reto';
 
 @Component({
   selector: 'app-perfil',
@@ -32,8 +18,11 @@ export class PerfilComponent implements OnInit {
   coleccionDeVideos: AngularFirestoreCollection<Video>;
   coleccionDeRetos: AngularFirestoreCollection<Reto>;
 
-  videos: Observable<Video[]>;
-  retos: Observable<Reto[]>;
+  videosObs: Observable<Video[]>;
+  retosObs: Observable<Reto[]>;
+
+  retos: Reto[];
+  videos: Video[];
 
   login: boolean;
 
@@ -58,7 +47,7 @@ export class PerfilComponent implements OnInit {
           this.imagenPerfil = this.authService.getPicture();
           this.nombreUsuario= auth.displayName;
           if(this.authService.getEmail() == null){
-            this.email='Te conectaste por Facebook, Google o Twitter :D';
+            this.email='Te conectaste por Facebook, Google o Twitter.';
           }
         }
         else{
@@ -71,9 +60,20 @@ export class PerfilComponent implements OnInit {
     });
 
     this.coleccionDeVideos = this.afs.collection('Videos', ref => {return ref.where('codigoUsuario','==', this.idUsuario)});
-    this.videos = this.coleccionDeVideos.valueChanges();
-    //Nombre categoria de retos
-    // this.coleccionDeRetos = this.afs.collection('Retos', ref => {return ref.where('codigoReto', '==')});
+    this.videosObs = this.coleccionDeVideos.valueChanges();
+
+    this.videosObs.subscribe(videos => {
+      this.videos = videos;
+      this.cantidadVideos = this.videos.length;
+    })
+
+    this.coleccionDeRetos = this.afs.collection('Retos');
+    this.retosObs = this.coleccionDeRetos.valueChanges();
+
+    this.retosObs.subscribe(retos => {
+      this.retos = retos;
+    })
+
     this.login = this.data.getLogin();
   }
 
@@ -81,7 +81,13 @@ export class PerfilComponent implements OnInit {
     this.router.navigateByUrl("/watch?" + codigoVideo + "=")
   }
 
-  obtenerRetos(){
-  }
+  getNombreReto(codigoReto): string{
+    for(let reto of this.retos){
+      if(reto.codigoReto === codigoReto){
+        return reto.nombre;
+      }
+    }
+    return "";
+  }  
 
-  }
+}

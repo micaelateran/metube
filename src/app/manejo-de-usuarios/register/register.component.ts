@@ -12,11 +12,9 @@ export class RegisterComponent implements OnInit {
   public email: string;
   public password : string;
 
-  constructor(public authService : AuthService, private router: Router) {
-  }
+  constructor(public authService : AuthService, private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   onSubmitAddUser() {
     this.authService.registerUser(this.email, this.password)
@@ -27,4 +25,16 @@ export class RegisterComponent implements OnInit {
      console.log("MAAAL")
     });
   }
+
+  registrarUsuario(){
+    let nombre = (<HTMLInputElement>document.getElementById("nombre")).value;
+    let apellidoPaterno = (<HTMLInputElement>document.getElementById("nombre")).value;
+    let apellidoMaterno = (<HTMLInputElement>document.getElementById("nombre")).value;
+    let fecha_nacimiento = (<HTMLInputElement>document.getElementById("nombre")).value;
+    let email = (<HTMLInputElement>document.getElementById("nombre")).value;
+    let contraseña = (<HTMLInputElement>document.getElementById("nombre")).value;
+
+    this.onSubmitAddUser();
+  }
+
 }

@@ -56,9 +56,9 @@ export class InterfazSubirVideosComponent implements OnInit {
             }
           }
           
-          console.log("Link de la miniatura antes de enviar: " + this.data.getLinkMiniatura());
-          console.log("Link del video antes de enviar: " + linkVideo);
-          this.database.agregarVideo(this.idReto, auth.uid, generateId(20), this.data.getLinkMiniatura(), linkVideo);
+          let fecha = new Date();
+
+          this.database.agregarVideo(this.idReto, auth.uid, generateId(20), fecha, this.data.getLinkMiniatura(), linkVideo);
           this.router.navigateByUrl('/')
         }
       });
