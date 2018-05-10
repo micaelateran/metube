@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import separarURL from '../../funciones/separador';
 import { Video } from '../../modelos/Video';
-import { Reto } from '../../modelos/reto';
+import { Reto } from '../../modelos/Reto';
 import { Usuario } from '../../modelos/Usuario';
 
 @Component({
