@@ -7,6 +7,7 @@ import { Video } from '../../modelos/Video';
 import { Reto } from '../../modelos/Reto';
 import { Usuario } from '../../modelos/Usuario';
 import { AuthService } from '../../servicios/auth.service';
+import separarURL from '../../funciones/separador';
 
 @Component({
   selector: 'app-lista-videos',
@@ -26,12 +27,19 @@ export class ListaVideosComponent implements OnInit {
   usuariosObs: Observable<Usuario[]>;
 
   usuarios: Usuario[];
+  videos: Video[];
 
-  constructor(private router:Router, private data: DataService, private afs: AngularFirestore, private authService: AuthService) { }
+  idReto: string;
+
+  cantidadVotosPorReto: number;
+
+  constructor(private router:Router, private data: DataService, private afs: AngularFirestore, private authService: AuthService) { 
+    this.idReto = separarURL(this.router.url);
+  }
 
   ngOnInit() {
-    this.coleccionDeVideos = this.afs.collection('Videos', ref => {return ref.where('codigoReto','==', this.data.getRetoID())});
-    this.coleccionDeRetos = this.afs.collection('Retos', ref => {return ref.where('codigoReto','==', this.data.getRetoID())});
+    this.coleccionDeVideos = this.afs.collection('Videos', ref => {return ref.where('codigoReto','==', this.idReto)});
+    this.coleccionDeRetos = this.afs.collection('Retos', ref => {return ref.where('codigoReto','==', this.idReto)});
     this.coleccionDeUsuarios = this.afs.collection('Usuarios');
 
     this.videosObs = this.coleccionDeVideos.valueChanges();
@@ -41,6 +49,19 @@ export class ListaVideosComponent implements OnInit {
     this.usuariosObs.subscribe(usuarios => {
       this.usuarios = usuarios;
     })
+
+    let coleccion2:  AngularFirestoreCollection<Video>= this.afs.collection('Videos', ref => {return ref.where('codigoReto','==', this.idReto)});
+    let videosObs2: Observable<Video[]> = coleccion2.valueChanges();
+
+    videosObs2.subscribe(videos => {
+      this.videos = videos;
+
+      this.cantidadVotosPorReto = 0;
+      for(let video of this.videos){
+        this.cantidadVotosPorReto += video.cantidadVotos;
+      }
+    })
+    
   }
 
   ver(codigoVideo: string): void{

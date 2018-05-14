@@ -23,6 +23,7 @@
                         <button class="btn" [(ngModel)]="reto.codigoReto" name="botonSubirVideo" ngDefaultControl (click)="subirVideo(reto.codigoReto)" role="button">SUBE TU VIDEO</button>
                         <br><br>
                      </div>
+                     <div style="color: white; text-align: center">Cantidad de votos: {{cantidadVotosPorReto}}</div>
                      <br>
                   </div>
                </section>
@@ -45,7 +46,7 @@
                         </button>  
                         <div class="media-body">
                            <br>
-                           <div class="nombre"><span><i class="fa fa-user-circle"></i>&nbsp;Usuario: {{video.codigoUsuario}}</span><br></div>
+                           <div class="nombre"><span><i class="fa fa-user-circle" [(ngModel)]="video.codigoUsuario" name="nombreDeUsuario" ngDefaultControl></i>&nbsp;Usuario: {{getNombreUsuario(video.codigoUsuario)}}</span><br></div>
                            <div class="stats">
                               <span><i class="fa fa-thumbs-up"></i>&nbsp;&nbsp;Calificación: {{video.calificacion}}</span>
                               <br><br>
@@ -59,3 +60,5 @@
          </div>
       </div>
    </div>
+
+
